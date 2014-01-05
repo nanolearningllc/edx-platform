@@ -11,13 +11,13 @@
       <hgroup>
         <div class="logo">
           % if self.stanford_theme_enabled():
-            <img src="${static.url('themes/stanford/images/seal.png')}" alt="Stanford Seal Logo" />
+            <img src="${static.url('themes/stanford/images/AMATbug_blue.png')}" alt="Applied Materials logo" />
           % else:
             <img src="${static.url('images/edx_bw.png')}" alt="Black and White edX Logo" />
           % endif
         </div>
         % if self.stanford_theme_enabled():
-          <h2>${_("Explore free courses from {university_name}.").format(university_name="Stanford University")}</h2>
+          <h2>${_("Explore free courses for and by {university_name}.").format(university_name="Applied Materials")}</h2>
         % else:
           <h2>${_("Explore free courses from leading universities.")}</h2>
         % endif
