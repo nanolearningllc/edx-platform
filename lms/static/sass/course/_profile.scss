@@ -1,3 +1,5 @@
+@import '../shame';
+
 div.profile-wrapper {
   color: #000;
 
@@ -151,6 +153,15 @@ div.profile-wrapper {
     div#grade-detail-graph {
       min-height: 400px;
       width: 100%;
+    }
+
+    div#course-completion-button {
+      padding: lh() 0;
+      text-align: center;
+
+      button {
+        @extend %m-btn-primary;
+      }
     }
 
     > ol {

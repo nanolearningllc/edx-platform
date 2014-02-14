@@ -1,4 +1,8 @@
-<%! from django.utils.translation import ugettext as _ %>
+<%!
+  import string
+  from django.utils.translation import ugettext as _
+  from django.conf import settings
+%>
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
 
@@ -40,6 +44,18 @@ ${progress_graph.body(grade_summary, course.grade_cutoffs, "grade-detail-graph",
         <div id="grade-detail-graph" aria-hidden="true"></div>
       %endif
 
+      %if grade_summary['grade'] is not None:
+        <div id="course-completion-button">
+          <%
+             completion_url_template = string.Template(settings.ENV_TOKENS.get('COURSE_COMPLETION_BUTTON_URL', ''))
+             completion_url = completion_url_template.substitute(course_id=course.id)
+          %>
+          <button onclick="window.location='${completion_url}'" class="action btn-large">
+            ${ _("Download your certificate") }
+          </button>
+        </div>
+      %endif
+
       <ol class="chapters">
         %for chapter in courseware_summary:
         %if not chapter['display_name'] == "hidden":
@@ -60,8 +76,9 @@ ${progress_graph.body(grade_summary, course.grade_cutoffs, "grade-detail-graph",
                 %if total > 0 or earned > 0:
                   <span class="sr">
                     ${_("{earned:.3n} of {total:.3n} possible points").format( earned = float(earned), total = float(total) )}
-                  </span></a>
+                  </span>
                 %endif
+                </a>
                 %if total > 0 or earned > 0:
                   <span> ${"({0:.3n}/{1:.3n}) {2}".format( float(earned), float(total), percentageString )}</span>
                 %endif
