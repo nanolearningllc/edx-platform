@@ -213,3 +213,9 @@ BROKER_URL = "{0}://{1}:{2}@{3}/{4}".format(CELERY_BROKER_TRANSPORT,
 
 # Event tracking
 TRACKING_BACKENDS.update(AUTH_TOKENS.get("TRACKING_BACKENDS", {}))
+
+### IP Restriction ###
+INSTALLED_APPS += ('restrict_access',)
+MIDDLEWARE_CLASSES += ('restrict_access.middleware.RestrictAccessMiddleware',)
+RESTRICT_ACCESS_ALLOW = ENV_TOKENS.get('RESTRICT_ACCESS_ALLOW')
+RESTRICT_ACCESS_REDIRECT_URL = ENV_TOKENS.get('RESTRICT_ACCESS_REDIRECT_URL')
