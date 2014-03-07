@@ -186,17 +186,16 @@ def get_email_params(course, auto_enroll):
     """
 
     stripped_site_name = settings.SITE_NAME
-    registration_url = 'https://' + stripped_site_name + reverse('student.views.register_user')
     is_shib_course = uses_shib(course)
 
     # Composition of email
     email_params = {
         'site_name': stripped_site_name,
-        'registration_url': registration_url,
+        'registration_path': reverse('student.views.register_user'),
         'course': course,
         'auto_enroll': auto_enroll,
-        'course_url': 'https://' + stripped_site_name + '/courses/' + course.id,
-        'course_about_url': 'https://' + stripped_site_name + '/courses/' + course.id + '/about',
+        'course_path': '/courses/' + course.id,
+        'course_about_path': '/courses/' + course.id + '/about',
         'is_shib_course': is_shib_course,
     }
     return email_params
@@ -210,10 +209,10 @@ def send_mail_to_student(student, param_dict):
     `param_dict` is a `dict` with keys
     [
         `site_name`: name given to edX instance (a `str`)
-        `registration_url`: url for registration (a `str`)
+        `registration_path`: path for registration (a `str`)
         `course_id`: id of course (a `str`)
         `auto_enroll`: user input option (a `str`)
-        `course_url`: url of course (a `str`)
+        `course_path`: path of course (a `str`)
         `email_address`: email of student (a `str`)
         `full_name`: student full name (a `str`)
         `message`: type of email to send and template to use (a `str`)
