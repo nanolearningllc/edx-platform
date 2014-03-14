@@ -6,6 +6,8 @@ from django.core.context_processors import csrf
 from django.shortcuts import redirect
 from django.conf import settings
 
+import django_openid_auth.views
+
 from edxmako.shortcuts import render_to_response
 
 from external_auth.views import ssl_login_shortcut
@@ -28,6 +30,9 @@ def login_page(request):
     """
     Display the login form.
     """
+    if settings.FEATURES.get('FORCE_OPENID_SSO'):
+        return django_openid_auth.views.login_begin(request)
+
     csrf_token = csrf(request)['csrf_token']
     return render_to_response('login.html', {
         'csrf': csrf_token,
