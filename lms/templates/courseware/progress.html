@@ -47,7 +47,7 @@ ${progress_graph.body(grade_summary, course.grade_cutoffs, "grade-detail-graph",
       %if grade_summary['grade'] is not None:
         <div id="course-completion-button">
           <%
-             completion_url_template = string.Template(settings.ENV_TOKENS.get('COURSE_COMPLETION_BUTTON_URL', ''))
+             completion_url_template = string.Template(settings.FEATURES.get('COURSE_COMPLETION_BUTTON_URL', ''))
              completion_url = completion_url_template.substitute(course_id=course.id)
           %>
           <button onclick="window.location='${completion_url}'" class="action btn-large">

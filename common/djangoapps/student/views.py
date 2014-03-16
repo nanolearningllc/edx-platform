@@ -767,7 +767,7 @@ def _do_create_account(post_vars):
 
     Note: this function is also used for creating test users.
     """
-    allowed_domains = settings.ENV_TOKENS.get('REGISTRATION_EMAIL_DOMAIN_WHITELIST')
+    allowed_domains = settings.FEATURES.get('REGISTRATION_EMAIL_DOMAIN_WHITELIST')
     if allowed_domains and post_vars['email'].split('@')[-1] not in allowed_domains:
         if CourseEnrollmentAllowed.objects.filter(email=post_vars['email']):
             # If the user was manually added by an instructor (to any course),
