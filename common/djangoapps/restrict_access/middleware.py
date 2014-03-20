@@ -58,6 +58,13 @@ class RestrictAccessMiddleware(object):
 
         allow = getattr(settings, "RESTRICT_ACCESS_ALLOW", None)
 
+        # Don't block access when the configured redirect url equals the request url.
+        # This avoids a redirect loop and lets you configure the url to point to
+        # a page on the same app.
+        redirect_url = getattr(settings, "RESTRICT_ACCESS_REDIRECT_URL", None)
+        if redirect_url == request.build_absolute_uri():
+            return
+
         # enabled?
         if allow:
 
