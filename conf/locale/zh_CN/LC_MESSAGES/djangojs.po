@@ -1410,11 +1410,11 @@ msgstr ""
 
 #: lms/templates/class_dashboard/d3_stacked_bar_graph.js
 msgid "students"
-msgstr ""
+msgstr "学生们"
 
 #: lms/templates/class_dashboard/d3_stacked_bar_graph.js
 msgid "questions"
-msgstr ""
+msgstr "问题"
 
 #: lms/templates/class_dashboard/d3_stacked_bar_graph.js
 msgid "Number of Students"

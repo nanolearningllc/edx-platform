@@ -1516,6 +1516,7 @@ msgstr ""
 msgid "% of Students"
 msgstr ""
 
+#: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/folditchallenge.html
 msgid "Score"
 msgstr "SKOR"

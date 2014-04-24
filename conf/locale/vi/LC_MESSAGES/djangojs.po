@@ -48,7 +48,7 @@ msgstr ""
 #: cms/static/js/views/modals/edit_xblock.js
 #: common/static/coffee/src/discussion/utils.js
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: cms/static/coffee/src/views/tabs.js cms/static/coffee/src/views/unit.js
 #: cms/static/js/base.js cms/static/js/views/asset.js
@@ -75,19 +75,19 @@ msgstr "Ẩn Chú Thích"
 
 #: common/lib/xmodule/xmodule/js/src/annotatable/display.js
 msgid "Expand Instructions"
-msgstr ""
+msgstr "Mở Rộng Hướng Dẫn"
 
 #: common/lib/xmodule/xmodule/js/src/annotatable/display.js
 msgid "Collapse Instructions"
-msgstr ""
+msgstr "Thu Nhỏ Hướng Dẫn"
 
 #: common/lib/xmodule/xmodule/js/src/annotatable/display.js
 msgid "Commentary"
-msgstr ""
+msgstr "Bình Luận"
 
 #: common/lib/xmodule/xmodule/js/src/annotatable/display.js
 msgid "Reply to Annotation"
-msgstr ""
+msgstr "Trả Lời Chú Thích"
 
 #. Translators: %(earned)s is the number of points earned. %(total)s is the
 #. total number of points (examples: 0/1, 1/1, 2/3, 5/10). The total number of
@@ -103,50 +103,50 @@ msgstr[0] "(%(earned)s/%(possible)s điểm)"
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "(%(num_points)s point possible)"
 msgid_plural "(%(num_points)s points possible)"
-msgstr[0] ""
+msgstr[0] "(có khả năng đạt %(num_points)s)"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Answer:"
-msgstr ""
+msgstr "Câu Trả Lời:"
 
 #. Translators: the word Answer here refers to the answer to a problem the
 #. student must solve.;
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Hide Answer"
-msgstr ""
+msgstr "Ẩn Câu Trả Lời"
 
 #. Translators: the word Answer here refers to the answer to a problem the
 #. student must solve.;
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Show Answer"
-msgstr ""
+msgstr "Hiện Câu Trả Lời:"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Reveal Answer"
-msgstr ""
+msgstr "Tiết Lộ Câu Trả Lời"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Answer hidden"
-msgstr ""
+msgstr "Câu trả lời ẩn"
 
 #. Translators: the word unanswered here is about answering a problem the
 #. student must solve.;
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "unanswered"
-msgstr ""
+msgstr "chưa trả lời"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "Status: unsubmitted"
-msgstr ""
+msgstr "Trạng thái: chưa gửi"
 
 #. Translators: A "rating" is a score a student gives to indicate how well
 #. they feel they were graded on this problem
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "You need to pick a rating before you can submit."
-msgstr ""
+msgstr "Cần bình chọn trước khi gửi."
 
 #. Translators: this message appears when transitioning between openended
 #. grading
@@ -155,7 +155,7 @@ msgstr ""
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "Your score did not meet the criteria to move to the next step."
-msgstr ""
+msgstr "Điểm của bạn không đạt chuẩn để được chuyển sang bước kế tiếp."
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 #: lms/static/coffee/src/staff_grading/staff_grading.js
@@ -167,18 +167,18 @@ msgstr "Gửi"
 #. form for an openended assessment
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "Submit assessment"
-msgstr ""
+msgstr "Gửi đánh giá"
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid ""
 "Your response has been submitted. Please check back later for your grade."
-msgstr ""
+msgstr "Bạn đã gửi phản hồi. Xin vui lòng kiểm tra lại sau để biết điểm."
 
 #. Translators: this button is clicked to submit a student's rating of
 #. an evaluator's assessment
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "Submit post-assessment"
-msgstr ""
+msgstr "Gửi bình chọn đánh giá"
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "Answer saved, but not yet submitted."
@@ -189,21 +189,25 @@ msgid ""
 "Please confirm that you wish to submit your work. You will not be able to "
 "make any changes after submitting."
 msgstr ""
+"Vui lòng xác nhận rằng bạn muốn nộp bài. Bạn sẽ không thể thay đổi gì được "
+"nữa sau khi gửi đi."
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid ""
 "You are trying to upload a file that is too large for our system.  Please "
 "choose a file under 2MB or paste a link to it into the answer box."
 msgstr ""
+"Bạn đang tải lên một tệp quá lớn đối với hệ thống của chúng tôi. Vui lòng "
+"chọn tệp dưới 2MB hoặc dán đường dẫn tới tệp vào ô trả lời."
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid ""
 "Are you sure you want to remove your previous response to this question?"
-msgstr ""
+msgstr "Bạn chắc chắn muốn bỏ câu trả lời trước cho câu hỏi này?"
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid "Moved to next step."
-msgstr ""
+msgstr "Đã sang bước kế tiếp."
 
 #: common/lib/xmodule/xmodule/js/src/combinedopenended/display.js
 msgid ""
@@ -212,6 +216,9 @@ msgid ""
 " uploaded the image to another website, you can paste a link to it into the "
 "answer box."
 msgstr ""
+"Câu hỏi này đòi hỏi phải tải tệp lên nhưng trình duyệt của bạn không hỗ trợ."
+" Hãy thử phiên bản Google Chrome mới nhất hoặc nếu đã tải hình lên một trang"
+" web khác, bạn có thể dán đường dẫn tới đó vào ô trả lời."
 
 #. Translators: "Show Question" is some text that, when clicked, shows a
 #. question's
@@ -231,6 +238,8 @@ msgid ""
 "Sequence error! Cannot navigate to tab %(tab_name)s in the current "
 "SequenceModule. Please contact the course staff."
 msgstr ""
+"Lỗi Sequence! Không thể điều hướng thanh %(tab_name)s trong SequenceModule. "
+"Xin vui lòng liên hệ với nhân viên phụ trách khóa học."
 
 #: common/lib/xmodule/xmodule/js/src/video/04_video_control.js
 msgid "Video slider"
@@ -246,7 +255,7 @@ msgstr "Phát"
 
 #: common/lib/xmodule/xmodule/js/src/video/04_video_control.js
 msgid "Fill browser"
-msgstr ""
+msgstr "Chế độ toàn màn hình"
 
 #: common/lib/xmodule/xmodule/js/src/video/04_video_control.js
 msgid "Exit full browser"
@@ -263,11 +272,11 @@ msgstr "Tắt chất lượng HD"
 #: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js
 #: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js
 msgid "Video position"
-msgstr ""
+msgstr "Video position "
 
 #: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js
 msgid "Video ended"
-msgstr ""
+msgstr "Video ended"
 
 #: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js
 msgid "%(value)s hour"
@@ -412,12 +421,12 @@ msgstr "bầu chọn"
 #: common/static/coffee/src/discussion/views/discussion_content_view.js
 msgid "vote (click to remove your vote)"
 msgid_plural "votes (click to remove your vote)"
-msgstr[0] ""
+msgstr[0] "bầu chọn (nhấp chọn để bỏ bầu chọn)"
 
 #: common/static/coffee/src/discussion/views/discussion_content_view.js
 msgid "vote (click to vote)"
 msgid_plural "votes (click to vote)"
-msgstr[0] ""
+msgstr[0] "bầu chọn (nhấp chọn để bầu chọn)"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_list_view.js
 msgid "Load more"
@@ -450,94 +459,95 @@ msgstr "Nhấp chọn để bỏ báo cáo"
 #: common/static/coffee/src/discussion/views/thread_response_show_view.js
 msgid "Misuse Reported%(start_sr_span)s, click to remove report%(end_span)s"
 msgstr ""
+"Đã Báo Cáo Phạm Quy%(start_sr_span)s, nhấp chọn để bỏ báo cáo%(end_span)s"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_show_view.js
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/thread_response_show_view.js
 msgid "Report Misuse"
-msgstr ""
+msgstr "Báo Cáo Phạm Quy"
 
 #. Translators: The text between start_sr_span and end_span is not shown
 #. in most browsers but will be read by screen readers.
 #: common/static/coffee/src/discussion/views/discussion_thread_show_view.js
 msgid "Pinned%(start_sr_span)s, click to unpin%(end_span)s"
-msgstr ""
+msgstr "Đã ghim%(start_sr_span)s, nhấp chọn để gỡ ghim%(end_span)s"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_show_view.js
 msgid "Click to unpin"
-msgstr ""
+msgstr "Nhấp chọn để gỡ ghim"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_show_view.js
 msgid "Pinned"
-msgstr ""
+msgstr "Đã ghim lại"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_show_view.js
 msgid "Pin Thread"
-msgstr ""
+msgstr "Ghim Chủ Đề"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid ""
 "The thread you selected has been deleted. Please select another thread."
-msgstr ""
+msgstr "Chủ đề bạn chọn đã bị xóa. Làm ơn chọn một chủ đề khác."
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "We had some trouble loading responses. Please reload the page."
-msgstr ""
+msgstr "Xảy ra sự cố trong lúc tải các phản hồi. Vui lòng tải lại trang."
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "We had some trouble loading more responses. Please try again."
-msgstr ""
+msgstr "Xảy ra sự cố trong lúc tải các phản hồi. Vui lòng thử lại."
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "%(numResponses)s response"
 msgid_plural "%(numResponses)s responses"
-msgstr[0] ""
+msgstr[0] "%(numResponses)s phản hồi"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "Showing all responses"
-msgstr ""
+msgstr "Đang hiện tất cả các phản hồi"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "Showing first response"
 msgid_plural "Showing first %(numResponses)s responses"
-msgstr[0] ""
+msgstr[0] "Đang hiện %(numResponses)s phản hồi đầu tiên"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "Load all responses"
-msgstr ""
+msgstr "Tải tất cả các phản hồi"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "Load next %(numResponses)s responses"
-msgstr ""
+msgstr "Tải %(numResponses)s phản hồi tiếp theo"
 
 #: common/static/coffee/src/discussion/views/discussion_thread_view.js
 msgid "Are you sure you want to delete this post?"
-msgstr ""
+msgstr "Bạn chắc chắn muốn xóa bài đăng này?"
 
 #: common/static/coffee/src/discussion/views/discussion_user_profile_view.js
 msgid "We had some trouble loading the page you requested. Please try again."
-msgstr ""
+msgstr "Xảy ra sự cố trong lúc tải trang bạn yêu cầu. Vui lòng thử lại."
 
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 msgid "anonymous"
-msgstr ""
+msgstr "ẩn danh"
 
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/thread_response_show_view.js
 msgid "staff"
-msgstr ""
+msgstr "nhân viên"
 
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/thread_response_show_view.js
 msgid "Community TA"
-msgstr ""
+msgstr "Cộng Đồng Trợ Giảng"
 
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/response_comment_show_view.js
 #: common/static/coffee/src/discussion/views/thread_response_show_view.js
 msgid "Misuse Reported, click to remove report"
-msgstr ""
+msgstr "Đã Báo Cáo Phạm Quy, nhấp chọn để bỏ báo cáo"
 
 #: common/static/coffee/src/discussion/views/response_comment_view.js
 msgid "Are you sure you want to delete this comment?"
@@ -549,19 +559,19 @@ msgstr "Xảy ra sự cố khi xóa bình luận này. Vui lòng thử lại."
 
 #: common/static/coffee/src/discussion/views/thread_response_view.js
 msgid "Are you sure you want to delete this response?"
-msgstr ""
+msgstr "Bạn chắc chắn muốn xóa phản hồi này?"
 
 #: common/static/js/src/jquery.timeago.locale.js
 msgid "%s ago"
-msgstr ""
+msgstr "%s trước"
 
 #: common/static/js/src/jquery.timeago.locale.js
 msgid "%s from now"
-msgstr ""
+msgstr "%s kể từ nay"
 
 #: common/static/js/src/jquery.timeago.locale.js
 msgid "less than a minute"
-msgstr ""
+msgstr "chưa đến một phút"
 
 #: common/static/js/src/jquery.timeago.locale.js
 msgid "about a minute"
@@ -646,7 +656,7 @@ msgstr "Loại bỏ"
 
 #: lms/static/admin/js/SelectFilter2.js
 msgid "Chosen %s"
-msgstr ""
+msgstr "%s đã được chọn"
 
 #: lms/static/admin/js/SelectFilter2.js
 msgid ""
@@ -674,6 +684,8 @@ msgid ""
 "You have unsaved changes on individual editable fields. If you run an "
 "action, your unsaved changes will be lost."
 msgstr ""
+"Bạn chưa lưu thay đổi trong các mục chỉnh sửa cá nhân. Nếu bạn chạy một tác "
+"vụ, những thay đổi  chưa lưu sẽ bị mất."
 
 #: lms/static/admin/js/actions.js lms/static/admin/js/actions.min.js
 msgid ""
@@ -681,6 +693,8 @@ msgid ""
 "individual fields yet. Please click OK to save. You'll need to re-run the "
 "action."
 msgstr ""
+"Bạn đã chọn một tác vụ, nhưng bạn chưa lưu những thay đổi của bạn trong mục "
+"cá nhân. Hãy nhấn OK để lưu. Bạn sẽ cần chạy lại tác vụ."
 
 #: lms/static/admin/js/actions.js lms/static/admin/js/actions.min.js
 msgid ""
@@ -688,6 +702,8 @@ msgid ""
 "fields. You're probably looking for the Go button rather than the Save "
 "button."
 msgstr ""
+"Bạn đã chọn một tác vụ, và bạn chưa thực hiện bất kỳ thay đổi nào trong các "
+"mục cá nhân. Có lẽ bạn đang tìm kiếm nút Đi Tiếp chứ không phải nút Lưu."
 
 #. Translators: the names of months, keep the pipe (|) separators.
 #: lms/static/admin/js/calendar.js lms/static/admin/js/dateparse.js
@@ -761,23 +777,23 @@ msgstr "Ngày mai"
 
 #: lms/static/coffee/src/calculator.js
 msgid "Open Calculator"
-msgstr ""
+msgstr "Mở Máy Tính"
 
 #: lms/static/coffee/src/calculator.js
 msgid "Close Calculator"
-msgstr ""
+msgstr "Đóng Máy Tính"
 
 #: lms/static/coffee/src/customwmd.js
 msgid "Preview"
-msgstr ""
+msgstr "Xem trước"
 
 #: lms/static/coffee/src/customwmd.js
 msgid "Post body"
-msgstr ""
+msgstr "Thân bài "
 
 #: lms/static/coffee/src/instructor_dashboard/analytics.js
 msgid "Error fetching distribution."
-msgstr ""
+msgstr "Lỗi khi tìm distribution"
 
 #: lms/static/coffee/src/instructor_dashboard/analytics.js
 msgid "Unavailable metric display."
@@ -785,15 +801,15 @@ msgstr ""
 
 #: lms/static/coffee/src/instructor_dashboard/analytics.js
 msgid "Error fetching grade distributions."
-msgstr ""
+msgstr "Lỗi khi tìm phân bố điểm."
 
 #: lms/static/coffee/src/instructor_dashboard/analytics.js
 msgid "Last Updated: <%= timestamp %>"
-msgstr ""
+msgstr "Cập Nhật Lần Cuối:"
 
 #: lms/static/coffee/src/instructor_dashboard/analytics.js
 msgid "<%= num_students %> students scored."
-msgstr ""
+msgstr "<%= num_students %> học viên đã được chấm điểm."
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid "Loading..."
@@ -801,124 +817,137 @@ msgstr "Đang tải..."
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid "Error getting student list."
-msgstr ""
+msgstr "Lỗi khi xem danh sách học viên."
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid "Error retrieving grading configuration."
-msgstr ""
+msgstr "Lỗi khi xem kết cấu điểm."
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid "Error generating grades. Please try again."
-msgstr ""
+msgstr "Lỗi khi xuất điểm. Vui lòng thử lại."
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid "File Name"
-msgstr ""
+msgstr "Tên Tệp"
 
 #: lms/static/coffee/src/instructor_dashboard/data_download.js
 msgid ""
 "Links are generated on demand and expire within 5 minutes due to the "
 "sensitive nature of student information."
 msgstr ""
+"Các đường dẫn đang được xuất theo yêu cầu nhưng sẽ hết hạn trong vòng 5 phút"
+" vì độ nhạy cảm của thông tin về học viên."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Username"
-msgstr ""
+msgstr "Tên đăng nhập"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Revoke access"
-msgstr ""
+msgstr "Hủy bỏ truy cập"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Enter username or email"
-msgstr ""
+msgstr "Nhập tên đăng nhập hoặc email"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Please enter a username or email."
-msgstr ""
+msgstr "Vui lòng nhập tên đăng nhập hoặc email."
 
 #. Translators: A rolename appears this sentence.;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Error fetching list for role"
-msgstr ""
+msgstr "Lỗi khi tìm danh sách phân công "
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Error changing user's permissions."
-msgstr ""
+msgstr "Lỗi khi thay đổi bảo mật của người dùng."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid ""
 "Could not find a user with username or email address '<%= identifier %>'."
 msgstr ""
+"Không tìm thấy người dùng với tên đăng nhập hay địa chỉ email '<%= "
+"identifier %>'."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid ""
 "Error: User '<%= username %>' has not yet activated their account. Users "
 "must create and activate their accounts before they can be assigned a role."
 msgstr ""
+"Lỗi: Người dùng  '<%= username %>' chưa kích hoạt tài khoản. Người dùng phải"
+" tạo và kích hoạt tài khoản đã rồi mới được giao nhiệm vụ."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Error: You cannot remove yourself from the Instructor group!"
-msgstr ""
+msgstr "Lỗi: Bạn không thể bỏ chính mình ra khỏi nhóm Giáo viên hướng dẫn."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Error adding/removing users as beta testers."
-msgstr ""
+msgstr "Lỗi khi thêm/bỏ người dùng bản thử nghiệm."
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users were successfully added as beta testers:"
 msgstr ""
+"Những người dùng này đã được thêm vào danh sách người dùng bản thử nghiệm:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users were successfully removed as beta testers:"
 msgstr ""
+"Những người dùng này đã được bỏ khỏi danh sách người dùng bản thử nghiệm:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users were not added as beta testers:"
 msgstr ""
+"Những người dùng này không được thêm vào danh sách người dùng bản thử "
+"nghiệm:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users were not removed as beta testers:"
 msgstr ""
+"Những người dùng này không được bỏ khỏi danh sách người dùng bản thử nghiệm:"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid ""
 "Users must create and activate their account before they can be promoted to "
 "beta tester."
 msgstr ""
+"Người dùng phải tạo và kích hoạt tài khoản trước khi có thể dùng thử bản thử"
+" nghiệm."
 
 #. Translators: A list of identifiers (which are email addresses and/or
 #. usernames) appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Could not find users associated with the following identifiers:"
-msgstr ""
+msgstr "Không thể tìm người dùng có các thông tin danh tính:"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Error enrolling/unenrolling users."
-msgstr ""
+msgstr "Lỗi khi ghi danh/xóa ghi danh người dùng."
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "The following email addresses and/or usernames are invalid:"
-msgstr ""
+msgstr "Các địa chỉ email và/hoặc tên đăng nhập sau bị vô hiệu:"
 
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Successfully enrolled and sent email to the following users:"
-msgstr ""
+msgstr "Đã ghi danh thành công và đã gửi email tới người dùng sau:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "Successfully enrolled the following users:"
-msgstr ""
+msgstr "Đã ghi danh thành công cho những người dùng sau:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
@@ -926,11 +955,13 @@ msgid ""
 "Successfully sent enrollment emails to the following users. They will be "
 "allowed to enroll once they register:"
 msgstr ""
+"Đã gửi email ghi danh thành công cho những người dùng sau đây - họ sẽ được "
+"ghi danh ngay sau khi đăng ký:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users will be allowed to enroll once they register:"
-msgstr ""
+msgstr "Những người dùng này sẽ được ghi danh ngay sau khi đăng ký:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
@@ -938,11 +969,13 @@ msgid ""
 "Successfully sent enrollment emails to the following users. They will be "
 "enrolled once they register:"
 msgstr ""
+"Đã gửi email ghi danh thành công cho những người dùng sau đây - họ sẽ được "
+"ghi danh ngay sau khi đăng ký:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "These users will be enrolled once they register:"
-msgstr ""
+msgstr "Những người dùng này sẽ được ghi danh ngay sau khi đăng ký:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
@@ -950,17 +983,20 @@ msgid ""
 "Emails successfully sent. The following users are no longer enrolled in the "
 "course:"
 msgstr ""
+"Thành công khi gửi email. Những người dùng sau không còn ghi danh trong khóa"
+" học:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid "The following users are no longer enrolled in the course:"
-msgstr ""
+msgstr "Những người dùng sau không còn ghi danh trong khóa học:"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/coffee/src/instructor_dashboard/membership.js
 msgid ""
 "These users were not affiliated with the course so could not be unenrolled:"
 msgstr ""
+"Những người dùng sau không liên hệ với khóa học nên không thể ghi danh:"
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid "Your message must have a subject."
@@ -972,25 +1008,32 @@ msgstr "Tin nhắn của bạn phải có nội dung."
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid "Your email was successfully queued for sending."
-msgstr ""
+msgstr "Email của bạn đã được xử lý thành công và đang chờ gửi đi."
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid ""
 "You are about to send an email titled '<%= subject %>' to yourself. Is this "
 "OK?"
 msgstr ""
+"Bạn sẽ gửi cho chính mình một email mang tiêu đề '<%= subject %>'. Có được "
+"không?"
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid ""
 "You are about to send an email titled '<%= subject %>' to everyone who is "
 "staff or instructor on this course. Is this OK?"
 msgstr ""
+"Bạn sẽ gửi cho các nhân viên phụ trách khóa học và giáo viên hướng dẫn một "
+"email mang tiêu đề '<%= subject %>'. Có được không?"
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid ""
 "You are about to send an email titled '<%= subject %>' to ALL (everyone who "
 "is enrolled in this course as student, staff, or instructor). Is this OK?"
 msgstr ""
+"Bạn sẽ gửi một email tiêu đề '<%= subject %>' cho TẤT CẢ (những ai tham gia "
+"vào khóa học, cả học viên, các nhân viên phụ trách khóa học hay giáo viên "
+"hướng dẫn). Có được không?"
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid ""
@@ -998,18 +1041,21 @@ msgid ""
 "classes, it may take up to an hour (or more, if other courses are "
 "simultaneously sending email) to send all emails."
 msgstr ""
+"Email của bạn đã được xử lý thành công và đang chờ gửi đi. Xin lưu ý, với "
+"những lớp học lớn, có thể mất đến một giờ (hoặc hơn, nếu các khóa học khác "
+"cũng đang đồng thời gửi email) để gửi tất cả các email."
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid "Error sending email."
-msgstr ""
+msgstr "Lỗi khi gửi email."
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid "There is no email history for this course."
-msgstr ""
+msgstr "Không có lịch sử email của khóa học này."
 
 #: lms/static/coffee/src/instructor_dashboard/send_email.js
 msgid "There was an error obtaining email task history for this course."
-msgstr ""
+msgstr "Lỗi khi xem lịch sử tác vụ email của khóa học này."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
@@ -1017,13 +1063,15 @@ msgstr ""
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Please enter a student email address or username."
-msgstr ""
+msgstr "Vui lòng nhập email hoặc tên đăng nhập của một học viên."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Error getting student progress url for '<%= student_id %>'. Check that the "
 "student identifier is spelled correctly."
 msgstr ""
+"Lỗi khi mở đường dẫn xem tiến độ học của học viên '<%= student_id %>'. Xin "
+"kiểm tra xem tên của học viên viết đã đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
@@ -1033,13 +1081,15 @@ msgstr ""
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Please enter a problem urlname."
-msgstr ""
+msgstr "Vui lòng nhập đường dẫn tới bài tập."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Success! Problem attempts reset for problem '<%= problem_id %>' and student "
 "'<%= student_id %>'."
 msgstr ""
+"Thành công! Tái thiết lập số lần có quyền nộp bài '<%= problem_id %>' cho "
+"học viên '<%= student_id %>'."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1047,21 +1097,28 @@ msgid ""
 " '<%= student_id %>'. Check that the problem and student identifiers are "
 "spelled correctly."
 msgstr ""
+"Lỗi khi tái thiết lập số lần có quyền nộp bài '<%= problem_id %>' cho học "
+"viên '<%= student_id %>'. Xin kiểm tra xem tên của học viên viết đã đúng "
+"chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Delete student '<%= student_id %>'s state on problem '<%= problem_id %>'?"
 msgstr ""
+"Xóa trạng thái bài tập '<%= problem_id %>' của học viên '<%= student_id %>'?"
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Error deleting student '<%= student_id %>'s state on problem '<%= problem_id"
 " %>'. Check that the problem and student identifiers are spelled correctly."
 msgstr ""
+"Lỗi khi xóa trạng thái bài tập '<%= problem_id %>' của học viên '<%= "
+"student_id %>'. Xin kiểm tra xem tên của bài tập và tên của học viên viết đã"
+" đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Module state successfully deleted."
-msgstr ""
+msgstr "Thành công khi xóa trạng thái của học phần."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1069,6 +1126,9 @@ msgid ""
 "'<%= student_id %>'. Click the 'Show Background Task History for Student' "
 "button to see the status of the task."
 msgstr ""
+"Đã bắt đầu chấm lại bài tập '<%= problem_id %>' cho học viên '<%= student_id"
+" %>'. Nhấn nút 'Hiển Thị Lịch Sử Tác Vụ Nền Sau cho Học Viên' để xem trạng "
+"thái của tác vụ."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1076,6 +1136,9 @@ msgid ""
 "'<%= student_id %>'. Check that the problem and student identifiers are "
 "spelled correctly."
 msgstr ""
+"Lỗi khi bắt đầu tác vụ chấm lại bài '<%= problem_id %>' cho học viên '<%= "
+"student_id %>'. Xin kiểm tra xem tên của bài tập và tên của học viên viết đã"
+" đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1083,10 +1146,15 @@ msgid ""
 "student_id %>'. Check that the problem and student identifiers are spelled "
 "correctly."
 msgstr ""
+"Lỗi khi xem lịch sử tác vụ của bài tập '<%= problem_id %>' và của học viên "
+"'<%= student_id %>'. Xin kiểm tra xem tên của bài tập và tên của học viên "
+"viết đã đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Reset attempts for all students on problem '<%= problem_id %>'?"
 msgstr ""
+"Tái thiết lập số lần có quyền nộp bài của tất cả các học viên cho bài tập "
+"'<%= problem_id %>'?"
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1094,16 +1162,22 @@ msgid ""
 " Click the 'Show Background Task History for Problem' button to see the "
 "status of the task."
 msgstr ""
+"Đã thành công bắt đầu tác vụ tái thiết lập số lần có quyền nộp bài cho bài "
+"tập '<%= problem_id %>'. Nhấn nút 'Hiển Thị Lịch Sử Tác Vụ Nền Sau cho Bài "
+"Tập' để xem trạng thái của tác vụ."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Error starting a task to reset attempts for all students on problem '<%= "
 "problem_id %>'. Check that the problem identifier is spelled correctly."
 msgstr ""
+"Lỗi khi bắt đầu tác vụ tái thiết lập số lần tất cả các học viên có quyền nộp"
+" bài đối với bài tập '<%= problem_id %>'. Xin kiểm tra xem tên của bài tập "
+"viết đã đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Rescore problem '<%= problem_id %>' for all students?"
-msgstr ""
+msgstr "Chấm lại bài tập '<%= problem_id %>' cho tất cả các học viên?"
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
@@ -1111,126 +1185,131 @@ msgid ""
 "students. Click the 'Show Background Task History for Problem' button to see"
 " the status of the task."
 msgstr ""
+"Đã thành công bắt đầu chấm lại bài tập '<%= problem_id %>' cho tất cả các "
+"học viên. Nhấn nút 'Hiển Thị Lịch Sử Tác Vụ Nền Sau cho Bài Tập' để xem "
+"trạng thái của tác vụ."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid ""
 "Error starting a task to rescore problem '<%= problem_id %>'. Check that the"
 " problem identifier is spelled correctly."
 msgstr ""
+"Lỗi khi bắt đầu tác vụ chấm lại bài '<%= problem_id %>'. Xin kiểm tra xem "
+"tên của bài tập viết đã đúng chưa."
 
 #: lms/static/coffee/src/instructor_dashboard/student_admin.js
 msgid "Error listing task history for this student and problem."
-msgstr ""
+msgstr "Lỗi khi xem lịch sử tác vụ của học viên và bài tập này."
 
 #. Translators: a "Task" is a background process such as grading students or
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Task Type"
-msgstr ""
+msgstr "Loại Tác Vụ"
 
 #. Translators: a "Task" is a background process such as grading students or
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Task inputs"
-msgstr ""
+msgstr "Nhập dữ liệu tác vụ"
 
 #. Translators: a "Task" is a background process such as grading students or
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Task ID"
-msgstr ""
+msgstr "Mã Tác Vụ"
 
 #. Translators: a "Requester" is a username that requested a task such as
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Requester"
-msgstr ""
+msgstr "Người yêu cầu"
 
 #. Translators: A timestamp of when a task (eg, sending email) was submitted
 #. appears after this
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Submitted"
-msgstr ""
+msgstr "Đã gửi"
 
 #. Translators: The length of a task (eg, sending email) in seconds appears
 #. this
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Duration (sec)"
-msgstr ""
+msgstr "Thời hạn (giây)"
 
 #. Translators: The state (eg, "In progress") of a task (eg, sending email)
 #. appears after this.
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "State"
-msgstr ""
+msgstr "Trạng thái "
 
 #. Translators: a "Task" is a background process such as grading students or
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Task Status"
-msgstr ""
+msgstr "Trạng Thái Tác Vụ"
 
 #. Translators: a "Task" is a background process such as grading students or
 #. sending email
 #: lms/static/coffee/src/instructor_dashboard/util.js
 msgid "Task Progress"
-msgstr ""
+msgstr "Tiến Trình Tác Vụ"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Grades saved.  Fetching the next submission to grade."
-msgstr ""
+msgstr "Đã lưu điểm. Tìm bài nộp tiếp theo để chấm điểm."
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Problem Name"
-msgstr ""
+msgstr "Tên Bài Tập"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Graded"
-msgstr ""
+msgstr "Đã chấm điểm"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Available to Grade"
-msgstr ""
+msgstr "Bài để Chấm"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Required"
-msgstr ""
+msgstr "Bắt buộc"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Progress"
-msgstr ""
+msgstr "Tiến Độ Học"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Back to problem list"
-msgstr ""
+msgstr "Quay trở lại danh sách bài tập"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Try loading again"
-msgstr ""
+msgstr "Thử tải lại"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "<%= num %> available "
-msgstr ""
+msgstr " <%= num %> bài hiện có"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "<%= num %> graded "
-msgstr ""
+msgstr " <%= num %> bài đã chấm"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "<%= num %> more needed to start ML"
-msgstr ""
+msgstr "cần có thêm <%= num %> nữa để bắt đầu ML"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "Re-check for submissions"
-msgstr ""
+msgstr "Kiểm tra lại các bài muốn gửi"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "System got into invalid state: <%= state %>"
-msgstr ""
+msgstr "Hệ thống ở trạng thái vô hiệu: <%= state %>"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 msgid "System got into invalid state for submission: "
-msgstr ""
+msgstr "Hệ thống ở trạng thái vô hiệu không thể gửi bài:"
 
 #: lms/static/coffee/src/staff_grading/staff_grading.js
 #: lms/static/coffee/src/staff_grading/staff_grading.js
@@ -1243,20 +1322,20 @@ msgstr "(Hiện)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Insert Hyperlink"
-msgstr ""
+msgstr "Nhập Đường Dẫn "
 
 #. Translators: Please keep the quotation marks (") around this text
 #: lms/static/js/Markdown.Editor.js lms/static/js/Markdown.Editor.js.c
 msgid "\"optional title\""
-msgstr ""
+msgstr "\"tiêu đề phụ\""
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Insert Image (upload file or type url)"
-msgstr ""
+msgstr "Nhập Hình (tải file lên hoặc đánh địa chỉ url vào)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Markdown Editing Help"
-msgstr ""
+msgstr "Trợ Giúp Chỉnh Sửa Markdown"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Bold (Ctrl+B)"
@@ -1284,39 +1363,39 @@ msgstr "Hình Ảnh (Ctrl+G)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Numbered List (Ctrl+O)"
-msgstr ""
+msgstr "Danh Sách Đánh Số (Ctrl+O)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Bulleted List (Ctrl+U)"
-msgstr ""
+msgstr "Danh Sách Gạch Đầu dòng (Ctrl+U)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Heading (Ctrl+H)"
-msgstr ""
+msgstr "Tiêu đề (Ctrl+H)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Horizontal Rule (Ctrl+R)"
-msgstr ""
+msgstr "Horizontal Rule (Ctrl+R)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Undo (Ctrl+Z)"
-msgstr ""
+msgstr "Hoàn tác (Ctrl+Z)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Redo (Ctrl+Y)"
-msgstr ""
+msgstr "Làm lại thao tác (Ctrl+Y)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Redo (Ctrl+Shift+Z)"
-msgstr ""
+msgstr "Làm lại thao tác (Ctrl+Shift+Z)"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "strong text"
-msgstr ""
+msgstr "strong text"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "emphasized text"
-msgstr ""
+msgstr "emphasized text"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "enter image description here"
@@ -1336,44 +1415,45 @@ msgstr "nhập code ở đây"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "List item"
-msgstr ""
+msgstr "Liệt kê các mục"
 
 #: lms/static/js/Markdown.Editor.js
 msgid "Heading"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Unknown Error Occurred."
-msgstr ""
+msgstr "Lỗi Không Xác Định."
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Successfully reset the attempts for user {user}"
 msgstr ""
+"Đã tái thiết lập thành công số lần có quyền nộp bài cho người dùng {user}"
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Failed to reset attempts."
-msgstr ""
+msgstr "Tái thiết số lần có quyền nộp bài đã thất bại."
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Successfully deleted student state for user {user}"
-msgstr ""
+msgstr "Thành công khi xóa trạng thái học viên cho người dùng {user}"
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Failed to delete student state."
-msgstr ""
+msgstr "Thất bại khi xóa trạng thái học viên."
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Successfully rescored problem for user {user}"
-msgstr ""
+msgstr "Thành công khi chấm lại bài tập cho học viên {user}"
 
 #: lms/static/js/staff_debug_actions.js
 msgid "Failed to rescore problem."
-msgstr ""
+msgstr "Thất bại khi chấm lại bài tập."
 
 #: lms/templates/class_dashboard/all_section_metrics.js
 #: lms/templates/class_dashboard/all_section_metrics.js
 msgid "Unable to retrieve data, please try again later."
-msgstr ""
+msgstr "Không thể mở dữ liệu, vui lòng thử lại sau."
 
 #: lms/templates/class_dashboard/d3_stacked_bar_graph.js
 msgid "student(s) opened Subsection"
@@ -1389,7 +1469,7 @@ msgstr ""
 
 #: lms/templates/class_dashboard/d3_stacked_bar_graph.js
 msgid "Number of Students"
-msgstr ""
+msgstr "Số Lượng Học Viên"
 
 #: cms/static/coffee/src/main.js
 msgid ""
@@ -1401,7 +1481,7 @@ msgstr ""
 
 #: cms/static/coffee/src/main.js
 msgid "Studio's having trouble saving your work"
-msgstr ""
+msgstr "Đang có vấn đề lưu lại công việc của bạn trong phần Studio"
 
 #: cms/static/coffee/src/views/tabs.js cms/static/coffee/src/views/tabs.js
 #: cms/static/coffee/src/views/unit.js
@@ -1434,11 +1514,11 @@ msgstr "Đang xóa&hellip;"
 
 #: cms/static/coffee/src/views/unit.js
 msgid "Adding&hellip;"
-msgstr ""
+msgstr "Đang thêm&hellip;"
 
 #: cms/static/coffee/src/views/unit.js cms/static/js/views/pages/container.js
 msgid "Duplicating&hellip;"
-msgstr ""
+msgstr "Đang nhân đôi&hellip;"
 
 #: cms/static/coffee/src/views/unit.js cms/static/js/views/pages/container.js
 msgid "Delete this component?"
@@ -1475,6 +1555,8 @@ msgstr "Vui lòng không dùng khoảng trắng trong mục này"
 #: cms/static/js/index.js
 msgid "Please do not use any spaces or special characters in this field."
 msgstr ""
+"Xin vui lòng không sử dụng bất kỳ dấu cách hoặc ký tự đặc biệt trong mục "
+"này."
 
 #: cms/static/js/index.js
 msgid ""
@@ -1486,7 +1568,7 @@ msgstr ""
 
 #: cms/static/js/index.js
 msgid "Required field."
-msgstr ""
+msgstr "Thông tin bắt buộc."
 
 #: cms/static/js/sock.js
 msgid "Hide Studio Help"
@@ -1494,11 +1576,11 @@ msgstr "Ẩn Trợ Giúp Studio"
 
 #: cms/static/js/sock.js
 msgid "Looking for Help with Studio?"
-msgstr ""
+msgstr "Yêu cầu giúp đỡ với Studio"
 
 #: cms/static/js/models/course.js cms/static/js/models/section.js
 msgid "You must specify a name"
-msgstr ""
+msgstr "Bạn phải xác định một tên"
 
 #: cms/static/js/models/uploads.js
 msgid ""
@@ -1530,7 +1612,7 @@ msgstr "Ngày bắt đầu ghi danh không thể sau ngày kết thúc ghi danh.
 
 #: cms/static/js/models/settings/course_details.js
 msgid "The enrollment end date cannot be after the course end date."
-msgstr ""
+msgstr "Hạn ghi danh không thể sau ngày kết thúc khóa học"
 
 #: cms/static/js/models/settings/course_details.js
 msgid "Key should only contain letters, numbers, _, or -"
@@ -1550,7 +1632,7 @@ msgstr "Vui lòng nhập một số nguyên lớn hơn 0."
 
 #: cms/static/js/models/settings/course_grader.js
 msgid "Please enter non-negative integer."
-msgstr ""
+msgstr "Vui lòng nhập số nguyên không âm"
 
 #: cms/static/js/models/settings/course_grader.js
 msgid "Cannot drop more <% attrs.types %> than will assigned."
@@ -1604,7 +1686,7 @@ msgstr "Tải lên một file PDF mới đến “<%= name %>”"
 
 #: cms/static/js/views/edit_chapter.js
 msgid "Please select a PDF file to upload."
-msgstr ""
+msgstr "Xin chọn file PDF để tải lên"
 
 #: cms/static/js/views/edit_textbook.js
 #: cms/static/js/views/overview_assignment_grader.js
@@ -1625,7 +1707,7 @@ msgstr ""
 
 #: cms/static/js/views/metadata.js
 msgid "Upload File"
-msgstr ""
+msgstr "Tải file lên"
 
 #: cms/static/js/views/overview.js
 msgid "Collapse All Sections"
@@ -1645,11 +1727,11 @@ msgstr "{month}/{day}/{year} lúc {hour}:{minute} UTC"
 
 #: cms/static/js/views/overview.js
 msgid "Edit section release date"
-msgstr ""
+msgstr "Chỉnh sửa mục ngày phát hành"
 
 #: cms/static/js/views/overview_assignment_grader.js
 msgid "Not Graded"
-msgstr ""
+msgstr "Chưa phân loại"
 
 #. Translators: sample result: "Showing 0-9 out of 25 total, sorted by Date
 #. Added ascending"
@@ -1707,7 +1789,7 @@ msgstr "Chúng tôi xin lỗi, có lỗi xảy ra"
 
 #: cms/static/js/views/validation.js
 msgid "You've made some changes"
-msgstr ""
+msgstr "Bạn đã thực hiện một số thay đổi"
 
 #: cms/static/js/views/validation.js
 msgid "Your changes will not take effect until you save your progress."
@@ -1736,11 +1818,11 @@ msgstr "Thay đổi của bạn đã được lưu."
 
 #: cms/static/js/views/xblock_editor.js
 msgid "Editor"
-msgstr ""
+msgstr "Trình biên tập"
 
 #: cms/static/js/views/xblock_editor.js
 msgid "Settings"
-msgstr ""
+msgstr "Thiết lập"
 
 #: cms/static/js/views/modals/base_modal.js
 msgid "Save"
@@ -1748,7 +1830,7 @@ msgstr "Lưu"
 
 #: cms/static/js/views/modals/edit_xblock.js
 msgid "Component"
-msgstr ""
+msgstr "Thành phần"
 
 #: cms/static/js/views/modals/edit_xblock.js
 msgid "Editing: %(title)s"
@@ -1765,7 +1847,7 @@ msgstr ""
 
 #: cms/static/js/views/settings/advanced.js
 msgid "Your policy changes have been saved."
-msgstr ""
+msgstr "Thay đổi chính sách của bạn đã được lưu."
 
 #: cms/static/js/views/settings/advanced.js
 msgid ""
@@ -1789,7 +1871,9 @@ msgid ""
 "Sorry, there was an error parsing the subtitles that you uploaded. Please "
 "check the format and try again."
 msgstr ""
+"Xin lỗi, có lỗi cú pháp trong phụ đề bạn tải lên. Vui lòng kiểm tra định "
+"dạng và thử lại."
 
 #: cms/static/js/views/video/translations_editor.js
 msgid "Upload translation"
-msgstr ""
+msgstr "Tải bản dịch lên"

@@ -16,6 +16,7 @@
 # Jie <jie.li@anu.edu.au>, 2013
 # Jie <jie.li@anu.edu.au>, 2013
 # Joe99_Du <joe99.du@gmail.com>, 2014
+# jsgang <jsgang9@gmail.com>, 2014
 # liuyang <liuyang2011@tsinghua.edu.cn>, 2013
 # pku9104038 <pku9104038@hotmail.com>, 2014
 # csc <am15501@163.com>, 2014
@@ -81,6 +82,7 @@
 # Jie <jie.li@anu.edu.au>, 2013
 # Joe99_Du <joe99.du@gmail.com>, 2014
 # Joe99_Du <joe99.du@gmail.com>, 2014
+# jsgang <jsgang9@gmail.com>, 2014
 # kuangchong07 <kuangchong07@gmail.com>, 2013
 # daisybellamy <linmiaoqiqi@hotmail.com>, 2014
 # Junjie, 2014
@@ -124,6 +126,7 @@
 # jiangnan.hugo <jiangnan.hugo@gmail.com>, 2014
 # Jie <jie.li@anu.edu.au>, 2013
 # Joe99_Du <joe99.du@gmail.com>, 2014
+# jsgang <jsgang9@gmail.com>, 2014
 # kuangchong07 <kuangchong07@gmail.com>, 2013
 # liuyang <liuyang2011@tsinghua.edu.cn>, 2013
 # pku9104038 <pku9104038@hotmail.com>, 2014
@@ -1056,7 +1059,7 @@ msgstr "客户端响应：检查函数返回无效字典！"
 #. translated.
 #: common/lib/capa/capa/responsetypes.py
 msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
-msgstr ""
+msgstr "SymbolicResponse时发生一个错误。错误描述: {error_msg}"
 
 #: common/lib/capa/capa/responsetypes.py
 msgid "No answer provided."
@@ -1610,10 +1613,12 @@ msgstr "名称"
 msgid "Username"
 msgstr "用户名"
 
+#: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Grade"
 msgstr "成绩"
 
+#: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Percent"
 msgstr "百分比"
@@ -1622,20 +1627,21 @@ msgstr "百分比"
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Section"
-msgstr ""
+msgstr "章"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "Subsection"
-msgstr ""
+msgstr "节"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "Opened by this number of students"
-msgstr ""
+msgstr "打开过的学生"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "subsections"
-msgstr ""
+msgstr "节"
 
+#: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/courseware/instructor_dashboard.html
 #: lms/templates/courseware/instructor_dashboard.html
 #: lms/templates/instructor/instructor_dashboard_2/analytics.html
@@ -1644,19 +1650,20 @@ msgstr "问题"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "Count of Students"
-msgstr ""
+msgstr "学生数量"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "% of Students"
-msgstr ""
+msgstr "% of 学生"
 
+#: lms/djangoapps/class_dashboard/dashboard_data.py
 #: lms/templates/folditchallenge.html
 msgid "Score"
 msgstr "得分"
 
 #: lms/djangoapps/class_dashboard/dashboard_data.py
 msgid "problems"
-msgstr ""
+msgstr "问题"
 
 #. Translators: this string includes wiki markup.  Leave the ** and the _
 #. alone.
@@ -8494,7 +8501,7 @@ msgstr "添加社区助教"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Use Reload Graphs to refresh the graphs."
-msgstr ""
+msgstr "使用重新加载图片来刷新"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Reload Graphs"
@@ -8502,7 +8509,7 @@ msgstr "重新载入图片"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Subsection Data"
-msgstr ""
+msgstr "小节数据"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Each bar shows the number of students that opened the subsection."
@@ -8517,15 +8524,15 @@ msgstr ""
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "You can also download this data as a CSV file."
-msgstr ""
+msgstr "您也可以以CSV文件下载这些数据"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Download Subsection Data for all Subsections as a CSV"
-msgstr ""
+msgstr "所有的小节数据以CSV文件下载"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Grade Distribution Data"
-msgstr ""
+msgstr "成绩分布数据"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Each bar shows the grade distribution for that problem."
@@ -8539,7 +8546,7 @@ msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Download Problem Data for all Problems as a CSV"
-msgstr ""
+msgstr "以CSV文件下载所有问题数据"
 
 #: lms/templates/instructor/instructor_dashboard_2/metrics.html
 msgid "Download Student Opened as a CSV"
@@ -11440,7 +11447,7 @@ msgstr "edX员工正在审核您的请求，并将尽快给您反馈。"
 
 #: cms/templates/index.html
 msgid "New to edX Studio?"
-msgstr ""
+msgstr "edX Studio的新手？"
 
 #: cms/templates/index.html
 msgid ""
@@ -11448,15 +11455,15 @@ msgid ""
 "Studio page you are viewing. You can also use the links at the bottom of the"
 " page to access our continously updated documentation and other Studio "
 "resources."
-msgstr ""
+msgstr "点击右上角的的帮助获得更多关于当前页面信息。您也可以使用页面底部的帮助链接访问我们持续更新的文档以及其他Studio资源"
 
 #: cms/templates/index.html
 msgid "Getting Started with edX Studio"
-msgstr ""
+msgstr "开始使用edX Studio"
 
 #: cms/templates/index.html cms/templates/widgets/sock.html
 msgid "Request help with edX Studio"
-msgstr ""
+msgstr "向edX Studio请求帮助"
 
 #: cms/templates/index.html cms/templates/index.html cms/templates/index.html
 msgid "Can I create courses in Studio?"
@@ -12236,7 +12243,7 @@ msgstr "如果您的教材没有独立的章节，您可以上传整个文本作
 
 #: cms/templates/textbooks.html
 msgid "Learn More"
-msgstr ""
+msgstr "了解更多"
 
 #: cms/templates/unit.html cms/templates/ux/reference/unit.html
 msgid "Individual Unit"
@@ -12429,7 +12436,7 @@ msgstr "帮助 &amp; 账户导航"
 
 #: cms/templates/widgets/header.html
 msgid "Contextual Online Help"
-msgstr ""
+msgstr "在线文本帮助"
 
 #: cms/templates/widgets/header.html
 msgid "Currently signed in as:"
@@ -12504,11 +12511,11 @@ msgstr "标签"
 
 #: cms/templates/widgets/sock.html
 msgid "Looking for help with Studio?"
-msgstr ""
+msgstr "通过Studio查找帮助？"
 
 #: cms/templates/widgets/sock.html cms/templates/widgets/sock.html
 msgid "edX Studio Documentation"
-msgstr ""
+msgstr "edX Studio文档"
 
 #: cms/templates/widgets/sock.html
 msgid ""
@@ -12517,14 +12524,15 @@ msgid ""
 "download the Building and Running an edX Course PDF file, to go to the edX "
 "Author Support site, or to enroll in edX101."
 msgstr ""
+"您可以点击每页右上角的帮助获取更多当前页的信息。您也可以通过页面下方的帮助链接下载创建中和运行中的edX课程的PDF文件，去获取edX作者的帮助网站或者注册为edX101."
 
 #: cms/templates/widgets/sock.html
 msgid "Building and Running an edX Course PDF"
-msgstr ""
+msgstr "创建并运行一个edx的PDF课程"
 
 #: cms/templates/widgets/sock.html cms/templates/widgets/sock.html
 msgid "edX Studio Author Support"
-msgstr ""
+msgstr "edX Studio作者支持"
 
 #: cms/templates/widgets/sock.html
 msgid "Enroll in edX101"
@@ -12532,11 +12540,11 @@ msgstr "注册edX101"
 
 #: cms/templates/widgets/sock.html
 msgid "How to use edX Studio to build your course"
-msgstr ""
+msgstr "如何使用edX Studio创建您的课程"
 
 #: cms/templates/widgets/sock.html
 msgid "Have problems, questions, or suggestions about edX Studio?"
-msgstr ""
+msgstr "您是否对edX Studio有什么问题、疑问或建议？"
 
 #: cms/templates/widgets/tabs-aggregator.html
 msgid "name"
