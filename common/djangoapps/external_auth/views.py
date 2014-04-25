@@ -193,8 +193,6 @@ def _external_login_or_signup(request,
             auth_backend = 'django.contrib.auth.backends.ModelBackend'
         user.backend = auth_backend
         AUDIT_LOG.info('Linked user "%s" logged in via Shibboleth', user.email)
-    elif settings.FEATURES.get('FORCE_OPENID_SSO'):
-        user = internal_user
     else:
         user = authenticate(username=uname, password=eamap.internal_password, request=request)
     if user is None:
