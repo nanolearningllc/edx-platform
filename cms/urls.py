@@ -112,11 +112,6 @@ if settings.DEBUG:
     except ImportError:
         pass
 
-if settings.FEATURES.get('AUTH_USE_OPENID'):
-    urlpatterns += (
-        url(r'^openid/complete/$', 'external_auth.views.openid_login_complete', name='openid-complete'),
-    )
-
 # Custom error pages
 #pylint: disable=C0103
 handler404 = 'contentstore.views.render_404'

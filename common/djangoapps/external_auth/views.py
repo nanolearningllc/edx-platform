@@ -768,20 +768,16 @@ def provider_login(request):
         # bottom of this method).
         elif openid_request.mode == 'checkid_setup':
             if openid_request.idSelect():
-                if settings.FEATURES.get('OPENID_PROVIDER_USE_EXISTING_SESSION') and \
-                        request.user and request.user.is_authenticated() and request.user.is_active:
-                    return _openid_auth_success(request, request.user, server, endpoint, openid_request)
-                else:
-                    # remember request and original path
-                    request.session['openid_setup'] = {
-                        'request': openid_request,
-                        'url': request.get_full_path()
-                    }
+                # remember request and original path
+                request.session['openid_setup'] = {
+                    'request': openid_request,
+                    'url': request.get_full_path()
+                }
 
-                    # user failed login on previous attempt
-                    if 'openid_error' in request.session:
-                        error = True
-                        del request.session['openid_error']
+                # user failed login on previous attempt
+                if 'openid_error' in request.session:
+                    error = True
+                    del request.session['openid_error']
 
         # OpenID response
         else:
@@ -833,10 +829,27 @@ def provider_login(request):
         # authentication succeeded, so fetch user information
         # that was requested
         if user is not None and user.is_active:
-            if settings.FEATURES.get('OPENID_PROVIDER_SIGN_IN'):
-                login(request, user)
-                request.session.set_expiry(0)
-            return _openid_auth_success(request, user, server, endpoint, openid_request)
+            # remove error from session since login succeeded
+            if 'openid_error' in request.session:
+                del request.session['openid_error']
+
+            AUDIT_LOG.info("OpenID login success - %s (%s)",
+                           user.username, user.email)
+
+            # redirect user to return_to location
+            url = endpoint + urlquote(user.username)
+            response = openid_request.answer(True, None, url)
+
+            # Note too that this is hardcoded, and not really responding to
+            # the extensions that were registered in the first place.
+            results = {
+                'nickname': user.username,
+                'email': user.email,
+                'fullname': user.profile.name,
+            }
+
+            # the request succeeded:
+            return provider_respond(server, openid_request, response, results)
 
         # the account is not active, so redirect back to the login page:
         request.session['openid_error'] = True
@@ -860,29 +873,6 @@ def provider_login(request):
     # add custom XRDS header necessary for discovery process
     response['X-XRDS-Location'] = get_xrds_url('xrds', request)
     return response
-
-def _openid_auth_success(request, user, server, endpoint, openid_request):
-      # remove error from session since login succeeded
-      if 'openid_error' in request.session:
-          del request.session['openid_error']
-
-      AUDIT_LOG.info("OpenID login success - %s (%s)",
-                     user.username, user.email)
-
-      # redirect user to return_to location
-      url = endpoint + urlquote(user.username)
-      response = openid_request.answer(True, None, url)
-
-      # Note too that this is hardcoded, and not really responding to
-      # the extensions that were registered in the first place.
-      results = {
-          'nickname': user.username,
-          'email': user.email,
-          'fullname': user.profile.name,
-      }
-
-      # the request succeeded:
-      return provider_respond(server, openid_request, response, results)
 
 
 def provider_identity(request):

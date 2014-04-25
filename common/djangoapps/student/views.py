@@ -33,8 +33,6 @@ from django.utils.translation import ugettext as _
 from django.views.decorators.http import require_POST, require_GET
 from django.contrib.admin.views.decorators import staff_member_required
 
-import django_openid_auth.views
-
 from ratelimitbackend.exceptions import RateLimitException
 
 from edxmako.shortcuts import render_to_response, render_to_string
@@ -249,8 +247,6 @@ def signin_user(request):
         return redirect(reverse('root'))
     if request.user.is_authenticated():
         return redirect(reverse('dashboard'))
-    if settings.FEATURES.get('FORCE_OPENID_SSO'):
-        return django_openid_auth.views.login_begin(request)
 
     context = {
         'course_id': request.GET.get('course_id'),
@@ -270,9 +266,6 @@ def register_user(request, extra_context=None):
         # Redirect to branding to process their certificate if SSL is enabled
         # and registration is disabled.
         return redirect(reverse('root'))
-    if settings.FEATURES.get('FORCE_OPENID_SSO') and not (extra_context and 'has_extauth_info' in extra_context):
-        base_url = '/'.join(settings.OPENID_SSO_SERVER_URL.split('/')[0:3])
-        return redirect(base_url + reverse('register_user'))
 
     context = {
         'course_id': request.GET.get('course_id'),
@@ -539,9 +532,6 @@ def accounts_login(request):
         # SSL login doesn't require a view, so redirect
         # to branding and allow that to process the login.
         return redirect(reverse('root'))
-    if settings.FEATURES.get('FORCE_OPENID_SSO'):
-        return django_openid_auth.views.login_begin(request)
-
     # see if the "next" parameter has been set, whether it has a course context, and if so, whether
     # there is a course-specific place to redirect
     redirect_to = request.GET.get('next')
