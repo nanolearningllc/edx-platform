@@ -184,7 +184,7 @@ def _external_login_or_signup(request,
 
     # We trust shib's authentication, so no need to authenticate using the password again
     uname = internal_user.username
-    if uses_shibboleth or settings.FEATURES.get('FORCE_OPENID_SSO'):
+    if uses_shibboleth:
         user = internal_user
         # Assuming this 'AUTHENTICATION_BACKENDS' is set in settings, which I think is safe
         if settings.AUTHENTICATION_BACKENDS:
@@ -192,10 +192,9 @@ def _external_login_or_signup(request,
         else:
             auth_backend = 'django.contrib.auth.backends.ModelBackend'
         user.backend = auth_backend
-        if uses_shibboleth:
-            AUDIT_LOG.info('Linked user "%s" logged in via Shibboleth', user.email)
-        else:
-            AUDIT_LOG.info('Linked user "%s" logged in via OpenID SSO', user.email)
+        AUDIT_LOG.info('Linked user "%s" logged in via Shibboleth', user.email)
+    elif settings.FEATURES.get('FORCE_OPENID_SSO'):
+        user = internal_user
     else:
         user = authenticate(username=uname, password=eamap.internal_password, request=request)
     if user is None:
