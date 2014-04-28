@@ -23,7 +23,7 @@
 <head>
   <%block name="title">
     % if stanford_theme_enabled():
-      <title>${_("Home")} | applied.nanolearning.me</title>
+      <title>${_("Home")} | ${settings.EDXAPP_LMS_BASE}</title>
     % else:
       ## "edX" should not be translated
       <title>edX</title>
