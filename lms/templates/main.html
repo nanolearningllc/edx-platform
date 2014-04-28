@@ -23,7 +23,7 @@
 <head>
   <%block name="title">
     % if stanford_theme_enabled():
-      <title>${_("Home")} | ${settings.EDXAPP_LMS_BASE}</title>
+      <title>${_("Home")} | ${settings.ENV_TOKENS['LMS_BASE']}</title>
     % else:
       ## "edX" should not be translated
       <title>edX</title>
