@@ -139,12 +139,14 @@ def _has_access_course_desc(user, action, course):
         If it is, then the user must pass the criterion set by the course, e.g. that ExternalAuthMap
             was set by 'shib:https://idp.stanford.edu/", in addition to requirements below.
         Rest of requirements:
-        Enrollment can only happen in the course enrollment period, if one exists.
-            or
-
         (CourseEnrollmentAllowed always overrides)
+          or
         (staff can always enroll)
+          or
+        Enrollment can only happen in the course enrollment period, if one exists, and
+        course is not invitation only.
         """
+
         # if using registration method to restrict (say shibboleth)
         if settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
             if user is not None and user.is_authenticated() and \
@@ -160,11 +162,6 @@ def _has_access_course_desc(user, action, course):
         start = course.enrollment_start
         end = course.enrollment_end
 
-        if reg_method_ok and (start is None or now > start) and (end is None or now < end):
-            # in enrollment period, so any user is allowed to enroll.
-            debug("Allow: in enrollment period")
-            return True
-
         # if user is in CourseEnrollmentAllowed with right course key then can also enroll
         # (note that course.id actually points to a CourseKey)
         # (the filter call uses course_id= since that's the legacy database schema)
@@ -173,8 +170,17 @@ def _has_access_course_desc(user, action, course):
             if CourseEnrollmentAllowed.objects.filter(email=user.email, course_id=course.id):
                 return True
 
-        # otherwise, need staff access
-        return _has_staff_access_to_descriptor(user, course, course.id)
+        if _has_staff_access_to_descriptor(user, course, course.id):
+            return True
+
+        # Invitation_only doesn't apply to CourseEnrollmentAllowed or has_staff_access_access
+        if course.invitation_only:
+            debug("Deny: invitation only")
+            return False
+
+        if reg_method_ok and (start is None or now > start) and (end is None or now < end):
+            debug("Allow: in enrollment period")
+            return True
 
     def see_exists():
         """
