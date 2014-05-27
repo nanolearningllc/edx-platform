@@ -211,8 +211,6 @@ MIDDLEWARE_CLASSES = (
 
     'embargo.middleware.EmbargoMiddleware',
 
-    'geoinfo.middleware.CountryMiddleware',
-
     # Detects user-requested locale from 'accept-language' header in http request
     'django.middleware.locale.LocaleMiddleware',
 

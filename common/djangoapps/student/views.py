@@ -28,6 +28,7 @@ from django.utils.http import cookie_date, base36_to_int
 from django.utils.translation import ugettext as _, get_language
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_POST, require_GET
+from django.utils.decorators import decorator_from_middleware
 
 from django.template.response import TemplateResponse
 
@@ -85,6 +86,8 @@ from util.password_policy_validators import (
 )
 
 from third_party_auth import pipeline, provider
+
+from geoinfo.middleware import CountryMiddleware
 
 log = logging.getLogger("edx.student")
 AUDIT_LOG = logging.getLogger("audit")
@@ -705,6 +708,7 @@ def accounts_login(request):
 
 
 # Need different levels of logging
+@decorator_from_middleware(CountryMiddleware)
 @ensure_csrf_cookie
 def login_user(request, error=""):  # pylint: disable-msg=too-many-statements,unused-argument
     """AJAX request to log in the user."""
