@@ -151,3 +151,9 @@ class VideoFields(object):
         display_name=_("Upload Handout"),
         scope=Scope.settings,
     )
+
+    cdn = Dict(
+        help=_("CDN video URLs."),
+        scope=Scope.user_state,
+        default={}
+    )

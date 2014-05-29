@@ -5,14 +5,8 @@ Middleware adds `country_code` in session.
 
 Usage:
 
-# Enable the middleware in your settings
-
-# To enable the Geoinfo feature for the whole site, set:
-FEATURES['ENABLE_GEOINFO'] = True
-
 # To enable the Geoinfo feature on a per-view basis, use:
 decorator `django.utils.decorators.decorator_from_middleware(middleware_class)`
-
 
 """
 
