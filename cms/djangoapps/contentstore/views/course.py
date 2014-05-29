@@ -156,7 +156,7 @@ def _accessible_courses_list(request):
     """
     List all courses available to the logged in user by iterating through all the courses
     """
-    courses = modulestore('direct').get_courses()
+    courses = modulestore().get_courses()
 
     # filter out courses that we don't have access to
     def course_filter(course):
@@ -188,7 +188,7 @@ def _accessible_courses_list_from_groups(request):
     for course_access in all_courses:
         course_key = course_access.course_id
         if course_key not in courses_list:
-            course = modulestore('direct').get_course(course_key)
+            course = modulestore().get_course(course_key)
             if course is None:
                 raise ItemNotFoundError(course_key)
             courses_list[course_key] = course
@@ -315,7 +315,7 @@ def create_new_course(request):
         fields.update(metadata)
 
         # Creating the course raises InvalidLocationError if an existing course with this org/name is found
-        new_course = modulestore('direct').create_course(
+        new_course = modulestore().create_course(
             course_key.org,
             course_key.offering,
             fields=fields,
@@ -422,7 +422,7 @@ def course_info_update_handler(request, course_key_string, provided_id=None):
         raise PermissionDenied()
 
     if request.method == 'GET':
-        course_updates = get_course_updates(usage_key, provided_id)
+        course_updates = get_course_updates(usage_key, provided_id, request.user.id)
         if isinstance(course_updates, dict) and course_updates.get('error'):
             return JsonResponse(course_updates, course_updates.get('status', 400))
         else:
