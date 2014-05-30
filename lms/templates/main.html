@@ -33,9 +33,16 @@
 ## this needs to be here to prevent the title from mysteriously appearing in the body, in one case
 <%def name="pagetitle()" />
   <%block name="title">
-      <title>
-       ${page_title_breadcrumbs(self.pagetitle())}
-      </title>
+    <title>${_("Home")} | ${settings.ENV_TOKENS['LMS_BASE']}</title>
+
+    <script type="text/javascript">
+      /* immediately break out of an iframe if coming from the marketing website */
+      (function(window) {
+        if (window.location !== window.top.location) {
+          window.top.location = window.location;
+        }
+      })(this);
+    </script>
   </%block>
 
   <script type="text/javascript">

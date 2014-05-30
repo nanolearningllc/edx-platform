@@ -237,33 +237,24 @@ def get_email_params(course, auto_enroll):
     )
     # TODO: Use request.build_absolute_uri rather than 'https://{}{}'.format
     # and check with the Services team that this works well with microsites
-    registration_url = u'https://{}{}'.format(
-        stripped_site_name,
-        reverse('student.views.register_user')
-    )
-    course_url = u'https://{}{}'.format(
-        stripped_site_name,
-        reverse('course_root', kwargs={'course_id': course.id.to_deprecated_string()})
-    )
+    registration_path = reverse('student.views.register_user')
+    course_path = reverse('course_root', kwargs={'course_id': course.id.to_deprecated_string()})
 
     # We can't get the url to the course's About page if the marketing site is enabled.
-    course_about_url = None
+    course_about_path = None
     if not settings.FEATURES.get('ENABLE_MKTG_SITE', False):
-        course_about_url = u'https://{}{}'.format(
-            stripped_site_name,
-            reverse('about_course', kwargs={'course_id': course.id.to_deprecated_string()})
-        )
+        course_about_path = reverse('about_course', kwargs={'course_id': course.id.to_deprecated_string()})
 
     is_shib_course = uses_shib(course)
 
     # Composition of email
     email_params = {
         'site_name': stripped_site_name,
-        'registration_url': registration_url,
+        'registration_path': registration_path,
         'course': course,
         'auto_enroll': auto_enroll,
-        'course_url': course_url,
-        'course_about_url': course_about_url,
+        'course_path': course_path,
+        'course_about_path': course_about_path,
         'is_shib_course': is_shib_course,
     }
     return email_params
@@ -277,10 +268,10 @@ def send_mail_to_student(student, param_dict):
     `param_dict` is a `dict` with keys
     [
         `site_name`: name given to edX instance (a `str`)
-        `registration_url`: url for registration (a `str`)
+        `registration_path`: path for registration (a `str`)
         `course_id`: id of course (a `str`)
         `auto_enroll`: user input option (a `str`)
-        `course_url`: url of course (a `str`)
+        `course_path`: path of course (a `str`)
         `email_address`: email of student (a `str`)
         `full_name`: student full name (a `str`)
         `message`: type of email to send and template to use (a `str`)

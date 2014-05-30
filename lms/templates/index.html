@@ -25,7 +25,7 @@
             ${homepage_overlay_html}
           % else:
             % if self.stanford_theme_enabled():
-              <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
+              <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Applied Materials")}</h1>
             % else:
               <h1>${_("The Future of Online Education")}</h1>
             % endif
@@ -91,7 +91,7 @@
     <%
       youtube_video_id = homepage_promo_video_youtube_id
       if self.stanford_theme_enabled():
-        youtube_video_id = "2gmreZObCY4"
+        youtube_video_id = "Y5XjSdE2PbA"
     %>
     <iframe width="640" height="360" src="//www.youtube.com/embed/${youtube_video_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
   </div>
