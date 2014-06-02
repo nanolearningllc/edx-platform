@@ -28,7 +28,6 @@ class CountryMiddleware(object):
         """
         Process detection.
         """
-        import ipdb; ipdb.set_trace()
         if request.user.is_authenticated():
             ip = get_ip(request)
             country_code = pygeoip.GeoIP(settings.GEOIP_PATH).country_code_by_addr(ip)
