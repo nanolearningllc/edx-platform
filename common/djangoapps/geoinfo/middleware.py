@@ -24,16 +24,17 @@ class CountryMiddleware(object):
     Middleware for obtain country info.
 
     """
-
-    def process_request(self, request):
+    def process_response(self, request, response):
         """
         Process detection.
         """
-        if not request.session.get('country_code', False):
+        import ipdb; ipdb.set_trace()
+        if request.user.is_authenticated():
             ip = get_ip(request)
             country_code = pygeoip.GeoIP(settings.GEOIP_PATH).country_code_by_addr(ip)
             request.session['country_code'] = country_code
             log.debug('Country code is set to %s', country_code)
         log.debug('Country code remains: %s', request.session['country_code'])
+        return response
 
 

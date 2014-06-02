@@ -12,6 +12,7 @@ in XML.
 """
 import json
 import logging
+import requests
 from operator import itemgetter
 
 from lxml import etree
@@ -93,11 +94,24 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
     ]}
     js_module_name = "Video"
 
+    def get_video_from_cdn(self, original_url):
+        cdn_url = "http://api.xuetangx.com/edx/video?s3_url={}"
+        cdn_video_url = requests.get(cdn_url.format(original_url))
+        if not cdn_video_url.status_code == 404:
+            cdn_result = json.loads(cdn_video_url.content)
+            return cdn_result['sources'][0]
+
     def get_html(self):
         track_url = None
         transcript_download_format = self.transcript_download_format
 
         sources = {get_ext(src): src for src in self.html5_sources}
+
+        if self.system.user_location == 'china':
+            for ext, url in sources.items():
+                new_url = self.get_video_from_cdn(url)
+                if new_url:
+                    sources[ext] = new_url              
 
         if self.download_video:
             if self.source:
