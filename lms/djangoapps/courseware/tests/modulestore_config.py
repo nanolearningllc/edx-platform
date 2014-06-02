@@ -10,8 +10,6 @@ from django.conf import settings
 
 TEST_DATA_DIR = settings.COMMON_TEST_DATA_ROOT
 TEST_DATA_XML_MODULESTORE = xml_store_config(TEST_DATA_DIR)
-TEST_DATA_DRAFT_MONGO_MODULESTORE = draft_mongo_store_config(TEST_DATA_DIR)
-TEST_DATA_MONGO_MODULESTORE = TEST_DATA_DRAFT_MONGO_MODULESTORE  # All mongo store requests now go through the draft store
 
 # Map all XML course fixtures so they are accessible through
 # the MixedModuleStore
@@ -28,3 +26,8 @@ MAPPINGS = {
     'edX/detached_pages/2014': 'xml',
 }
 TEST_DATA_MIXED_MODULESTORE = mixed_store_config(TEST_DATA_DIR, MAPPINGS)
+
+# All store requests now go through mixed
+# NAATODO - get rid of these constants?
+TEST_DATA_DRAFT_MONGO_MODULESTORE = TEST_DATA_MIXED_MODULESTORE
+TEST_DATA_MONGO_MODULESTORE = TEST_DATA_DRAFT_MONGO_MODULESTORE
