@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
+            # NAATODO - should we allow callers to specify the store name at all?
             name = options['modulestore']
             store = modulestore(name)
         except KeyError:
