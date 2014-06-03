@@ -176,7 +176,9 @@ class MixedModuleStore(ModuleStoreWriteBase):
 
     def has_course(self, course_id, ignore_case=False):
         """
-        returns whether the course exists
+        returns the course_id of the course if it was found, else None
+        Note: we return the course_id instead of a boolean here since the found course may have
+           a different id than the given course_id when ignore_case is True.
 
         Args:
         * course_id (CourseKey)
