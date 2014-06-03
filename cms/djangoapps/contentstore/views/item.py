@@ -293,11 +293,18 @@ def _save_item(request, usage_key, data=None, children=None, metadata=None, null
 
     if publish:
         if publish == 'make_private':
-            modulestore().unpublish(existing_item.location, request.user.id),
+            try:
+                modulestore().unpublish(existing_item.location, request.user.id),
+            except ItemNotFoundError:
+                pass
         elif publish == 'create_draft':
-            # This recursively clones the existing item location to a draft location (the draft is
-            # implicit, because modulestore is a Draft modulestore)
-            modulestore().convert_to_draft(existing_item.location, request.user.id)
+            try:
+                # This recursively clones the existing item location to a draft location (the draft is
+                # implicit, because modulestore is a Draft modulestore)
+                modulestore().convert_to_draft(existing_item.location, request.user.id)
+            except DuplicateItemError:
+                pass
+
 
     if data:
         # TODO Allow any scope.content fields not just "data" (exactly like the get below this)
