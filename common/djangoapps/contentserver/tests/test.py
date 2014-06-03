@@ -36,10 +36,6 @@ class ContentStoreToyCourseTest(ModuleStoreTestCase):
         """
         Create user and login.
         """
-
-        settings.MODULESTORE['default']['OPTIONS']['fs_root'] = path('common/test/data')
-        settings.MODULESTORE['direct']['OPTIONS']['fs_root'] = path('common/test/data')
-
         self.client = Client()
         self.contentstore = contentstore()
 
