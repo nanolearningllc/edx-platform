@@ -86,6 +86,7 @@ class InheritanceMixin(XBlockMixin):
               "If the value is not set, infinite attempts are allowed."),
         values={"min": 0}, scope=Scope.settings
     )
+    cdn_url = String(help="CDN API URL for video speed optimizations.", scope=Scope.settings)
 
 
 
