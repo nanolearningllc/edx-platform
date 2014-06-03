@@ -1,6 +1,8 @@
 """
 Module containts utils specific for video_module but not for transcripts.
 """
+import requests
+import json
 
 
 def create_youtube_string(module):
@@ -23,3 +25,11 @@ def create_youtube_string(module):
         in zip(youtube_speeds, youtube_ids)
         if pair[1]
     ])
+
+def get_video_from_cdn(original_url):
+        cdn_url = "http://api.xuetangx.com/edx/video?s3_url={}"
+        cdn_video_url = requests.get(cdn_url.format(original_url))
+        if cdn_video_url.status_code == 200:
+            cdn_result = json.loads(cdn_video_url.content)
+            return cdn_result['sources'][0]
+        

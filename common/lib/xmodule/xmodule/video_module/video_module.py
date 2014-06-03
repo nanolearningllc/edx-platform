@@ -12,7 +12,6 @@ in XML.
 """
 import json
 import logging
-import requests
 from operator import itemgetter
 
 from lxml import etree
@@ -32,7 +31,7 @@ from xmodule.editing_module import TabsEditingDescriptor
 from xmodule.raw_module import EmptyDataRawDescriptor
 from xmodule.xml_module import is_pointer_tag, name_to_pathname, deserialize_field
 
-from .video_utils import create_youtube_string
+from .video_utils import create_youtube_string, get_video_from_cdn
 from .video_xfields import VideoFields
 from .video_handlers import VideoStudentViewHandlers, VideoStudioViewHandlers
 
@@ -94,12 +93,6 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
     ]}
     js_module_name = "Video"
 
-    def get_video_from_cdn(self, original_url):
-        cdn_url = "http://api.xuetangx.com/edx/video?s3_url={}"
-        cdn_video_url = requests.get(cdn_url.format(original_url))
-        if not cdn_video_url.status_code == 404:
-            cdn_result = json.loads(cdn_video_url.content)
-            return cdn_result['sources'][0]
 
     def get_html(self):
         track_url = None
@@ -111,8 +104,8 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
             for ext, url in sources.items():
                 new_url = self.get_video_from_cdn(url)
                 if new_url:
-                    sources[ext] = new_url              
-
+                    sources[ext] = new_url
+        
         if self.download_video:
             if self.source:
                 sources['main'] = self.source
