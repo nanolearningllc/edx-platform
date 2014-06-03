@@ -85,6 +85,9 @@ class Refund(FormView):
             messages.success(self.request, _("Refunded {cost} for order id {order_id}").format(cost=cert.unit_cost, order_id=cert.order.id))
             return HttpResponseRedirect('/support/refund/')
         else:
+            # this is a two-step form: first look up the data, then issue the refund.
+            # first time through, set the hidden "confirmed" field to true and then redisplay the form
+            # second time through (above), do the unenrollment/refund.
             form.data = {'user': form.data['user'], 'course_id': form.data['course_id'], 'confirmed': 'true'}
             form.cleaned_data['confirmed'] = 'true'
             log.info(u"%s wants to refund %s %s", self.request.user, form.data['user'], form.data['course_id'])
