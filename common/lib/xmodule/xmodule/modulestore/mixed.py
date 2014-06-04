@@ -394,6 +394,7 @@ class MixedModuleStore(ModuleStoreWriteBase):
     def publish(self, location, user_id):
         """
         Save a current draft to the underlying modulestore
+        Returns the newly published item.
         """
         course_id = location.course_key
         store = self._get_modulestore_for_courseid(course_id)
@@ -405,6 +406,7 @@ class MixedModuleStore(ModuleStoreWriteBase):
     def unpublish(self, location, user_id):
         """
         Save a current draft to the underlying modulestore
+        Returns the newly unpublished item.
         """
         course_id = location.course_key
         store = self._get_modulestore_for_courseid(course_id)

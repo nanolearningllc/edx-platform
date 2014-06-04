@@ -125,6 +125,7 @@ def xblock_handler(request, usage_key_string):
 
         elif request.method == 'DELETE':
             # NAATODO - is this correct?  Why was there a revision=DRAFT added here?
+            # NAATODO - for the unit page - introduce a revert_to_version method instead of calling Delete
             modulestore().delete_item(usage_key, request.user.id)
             return JsonResponse()
         else:  # Since we have a usage_key, we are updating an existing xblock.
