@@ -1661,7 +1661,11 @@ def change_email_request(request):
     try:
         send_mail(subject, message, from_address, [pec.new_email])
     except Exception:  # pylint: disable=broad-except
-        log.warning('Unable to send change email address email to user from "{from_address}"'.format(from_address=from_address), exc_info=True)
+        log.warning('Unable to send email activation link to user from "{from_address}"'.format(from_address=from_address), exc_info=True)
+        return JsonResponse({
+            "success": False,
+            "error": _('Unable to send email activation link. Please try again later.')
+        })
 
     return JsonResponse({"success": True})
 
