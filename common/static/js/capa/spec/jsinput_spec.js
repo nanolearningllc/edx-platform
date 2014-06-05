@@ -8,6 +8,7 @@ describe("JSInput", function() {
 
     it('sets all data-processed attributes to true on first load', function() {
         this.sections.each(function(index, item) {
+            item = $(item);
             expect(item.attr('data-processed')).toEqual('true');
         });
     });
@@ -23,6 +24,7 @@ describe("JSInput", function() {
 
     it('sets the waitfor attribute to its update function', function() {
         this.inputFields.each(function(index, item) {
+            item = $(item);
             expect(item.data('waitfor')).toBeDefined();
         });
     });
