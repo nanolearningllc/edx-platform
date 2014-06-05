@@ -906,4 +906,4 @@ class Html5VideoTest(VideoBaseTest):
 
         self.assertTrue(self.video.is_video_rendered('html5'))
 
-        self.assertTrue(all([source in HTML5_SOURCES for source in self.video.sources()])
+        self.assertTrue(all([source in HTML5_SOURCES for source in self.video.sources()]))
