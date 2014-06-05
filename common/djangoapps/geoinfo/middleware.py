@@ -33,7 +33,6 @@ class CountryMiddleware(object):
             country_code = pygeoip.GeoIP(settings.GEOIP_PATH).country_code_by_addr(ip)
             request.session['country_code'] = country_code
             log.debug('Country code is set to %s', country_code)
-        log.debug('Country code remains: %s', request.session['country_code'])
         return response
 
 

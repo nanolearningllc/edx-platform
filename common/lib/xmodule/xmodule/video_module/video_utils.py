@@ -26,10 +26,9 @@ def create_youtube_string(module):
         if pair[1]
     ])
 
-def get_video_from_cdn(original_url):
-        cdn_url = "http://api.xuetangx.com/edx/video?s3_url={}"
-        cdn_video_url = requests.get(cdn_url.format(original_url))
-        if cdn_video_url.status_code == 200:
-            cdn_result = json.loads(cdn_video_url.content)
-            return cdn_result['sources'][0]
-        
+def get_video_from_cdn(module, original_url):
+        cdn_url = module.cdn_url + original_url
+        cdn_response = requests.get(cdn_url)
+        if cdn_response.status_code == 200:
+            cdn_content = json.loads(cdn_video_url.content)
+            return cdn_content['sources'][0]

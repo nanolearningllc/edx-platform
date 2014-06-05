@@ -102,7 +102,7 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
 
         if self.system.user_location == 'china':
             for ext, url in sources.items():
-                new_url = self.get_video_from_cdn(url)
+                new_url = get_video_from_cdn(self, url)
                 if new_url:
                     sources[ext] = new_url
         
