@@ -27,4 +27,12 @@ describe("JSInput", function() {
             expect(inputField.data('waitfor')).toBeDefined();
         });
     });
+
+    it('tests the correct number of sections', function () {
+        var sections = $(document).find('section[id="inputtype_"]');
+        var inputFields = $(document).find('input[id="input_"]');
+        expect(sections.length).toEqual(inputFields.length);
+        expect(sections.length).toBeGreaterThan(0);
+    });
 });
+
