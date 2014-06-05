@@ -4,56 +4,6 @@
 <%namespace name='static' file='static_content.html'/>
 <%! from microsite_configuration.templatetags.microsite import platform_name %>
 
-<style>
-
-/* all I did here was change .references to .colophon and commented out the
-   text-align: right */
-
-.wrapper-footer footer .colophon .copyright {
-    margin: -2px 0 8px 0;
-    font-size: 0.6875em;
-    color: #c4c5c7;
-    /*text-align: right;*/
-}
-
-.wrapper-footer footer .colophon .nav-legal {
-    *zoom: 1;
-    /*text-align: right*/
-}
-
-.wrapper-footer footer .colophon .nav-legal:before, .wrapper-footer footer .colophon .nav-legal:after {
-    content: " ";
-    display: table
-}
-
-.wrapper-footer footer .colophon .nav-legal:after {
-    clear: both
-}
-
-.wrapper-footer footer .colophon .nav-legal li {
-    display: inline-block;
-    font-size: 0.6875em
-}
-
-.wrapper-footer footer .colophon .nav-legal li a {
-    display: block
-}
-
-.wrapper-footer footer .colophon .nav-legal .nav-legal-01 a:after {
-    margin-left: 5px;
-    content: "-"
-}
-
-/* powered-by is a new class */
-
-.wrapper-footer footer .powered-by {
-    text-align: right;
-}
-.wrapper-footer footer .powered-by a:hover {
-    border-bottom: none;
-}
-</style>
-
 <div class="wrapper wrapper-footer">
   <footer>
     <div class="colophon">
@@ -86,6 +36,15 @@
           </li>
       </ol>
       </nav>
+
+      <div class="wrapper-logo">
+        <p>
+          <a href="/">
+            <img alt="organiztion logo placeholder" src="/static/images/logo-placeholder.png">
+          </a>
+        </p>
+      </div>
+
       <p class="copyright">${_("&copy; 2014 {platform_name}, some rights reserved").format(platform_name=settings.PLATFORM_NAME)}</p>
         <nav class="nav-legal">
           <ul>
@@ -100,7 +59,17 @@
     </div>
 
     <div class="powered-by">
-      <a href="http://openedx.org/"><img src="${static.url('images/edx-openedx-logo-tag.png')}" alt="Powered by Open edX" /></a>
+      <p>
+        <a href="http://openedx.org/">
+          <img src="${static.url('images/edx-openedx-logo-tag.png')}" alt="Powered by Open edX" />
+          <!-- greyscale logo for dark background
+            <img src="${static.url('images/edx-openedx-logo-tag-light.png')}" alt="Powered by Open edX" />
+          -->
+          <!-- greyscale logo for light background
+            <img src="${static.url('images/edx-openedx-logo-tag-dark.png')}" alt="Powered by Open edX" />
+          -->
+        </a>
+      </p>
     </div>
   </footer>
 </div>
