@@ -35,9 +35,6 @@ FEATURES['PREVIEW_LMS_BASE'] = "preview." + LMS_BASE
 # Make it easier to test advanced components in local dev
 FEATURES['ALLOW_ALL_ADVANCED_COMPONENTS'] = True
 
-################################# GEOINFO #####################################
-FEATURES['ENABLE_GEOINFO'] = True
-
 ################################# CELERY ######################################
 
 # By default don't use a worker, execute tasks as if they were local functions
