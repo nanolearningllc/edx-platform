@@ -32,5 +32,5 @@ def get_video_from_cdn(original_url):
         request_url = settings.VIDEO_CDN_URL + original_url
         cdn_response = requests.get(request_url)
         if cdn_response.status_code == 200:
-            cdn_content = json.loads(cdn_video_url.content)
+            cdn_content = json.loads(cdn_response.content)
             return cdn_content['sources'][0]
