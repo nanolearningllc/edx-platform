@@ -41,14 +41,14 @@ class CountryMiddlewareTests(TestCase):
         Gives us a fake set of IPs
         """
         ip_dict = {
-            '1.0.0.0': 'CU',
+            '1.0.1.0': 'CN',
         }
         return ip_dict.get(ip_addr, 'US')
 
     def test_country_code_added(self):
         request = self.request_factory.get('/somewhere', 
-                                            HTTP_X_FORWARDED_FOR='1.0.0.0',
-                                            REMOTE_ADDR='1.0.0.0'
+                                            HTTP_X_FORWARDED_FOR='1.0.1.0',
+                                            REMOTE_ADDR='1.0.1.0'
                                         )
         request.user = self.authenticated_user
         self.session_middleware.process_request(request)
@@ -56,12 +56,12 @@ class CountryMiddlewareTests(TestCase):
         self.assertNotIn('country_code', request.session)
         self.country_middleware.process_response(request, self.response)
         # Country code added to session.
-        self.assertEqual('CU', request.session.get('country_code'))
+        self.assertEqual('CN', request.session.get('country_code'))
 
     def test_user_not_authenticated(self):
         request = self.request_factory.get('/somewhere', 
-                                            HTTP_X_FORWARDED_FOR='1.0.0.0',
-                                            REMOTE_ADDR='1.0.0.0'
+                                            HTTP_X_FORWARDED_FOR='1.0.1.0',
+                                            REMOTE_ADDR='1.0.1.0'
                                         )
         request.user = self.anonymous_user
         self.session_middleware.process_request(request)

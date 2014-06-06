@@ -100,7 +100,9 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
 
         sources = {get_ext(src): src for src in self.html5_sources}
 
-        if self.system.user_location == 'china':
+        # If the user comes from China use China CDN for html5 videos.
+        # 'CN' is China ISO 3166-1 country code.
+        if self.system.user_location == 'CN':
             for ext, url in sources.items():
                 new_url = get_video_from_cdn(self, url)
                 if new_url:
