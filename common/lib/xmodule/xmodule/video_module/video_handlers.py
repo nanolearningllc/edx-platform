@@ -11,7 +11,6 @@ from webob import Response
 
 from xblock.core import XBlock
 
-from xmodule.course_module import CourseDescriptor
 from xmodule.exceptions import NotFoundError
 from xmodule.fields import RelativeTime
 
@@ -242,7 +241,10 @@ class VideoStudentViewHandlers(object):
                 log.info("Invalid /translation request: no language.")
                 return Response(status=400)
 
-            if language not in ['en'] + self.transcripts.keys():
+            videoId = request.GET.get('videoId', None)
+            if language is 'table':
+                videoId = 'table_' + videoId if videoId else None
+            elif language not in ['en'] + self.transcripts.keys():
                 log.info("Video: transcript facilities are not available for given language.")
                 return Response(status=404)
 
@@ -250,7 +252,7 @@ class VideoStudentViewHandlers(object):
                 self.transcript_language = language
 
             try:
-                transcript = self.translation(request.GET.get('videoId', None))
+                transcript = self.translation(videoId)
             except NotFoundError, ex:
                 log.info(ex.message)
                 # Try to return static URL redirection as last resort
@@ -342,8 +344,6 @@ class VideoStudioViewHandlers(object):
                     no SRT extension or not parse-able by PySRT
                 UnicodeDecodeError: non-UTF8 uploaded file content encoding.
         """
-        _ = self.runtime.service(self, "i18n").ugettext
-
         if dispatch.startswith('translation'):
             language = dispatch.replace('translation', '').strip('/')
 
@@ -375,5 +375,35 @@ class VideoStudioViewHandlers(object):
         else:  # unknown dispatch
             log.debug("Dispatch is not allowed")
             response = Response(status=404)
+
+        return response
+
+    @XBlock.handler
+    def studio_tables(self, request, dispatch):
+        language = dispatch.strip('/')
+
+        if not language:
+            log.info("Invalid /translation request: no language.")
+            return Response(status=400)
+
+        if request.method == 'POST':
+            subtitles = request.POST['file']
+            save_to_store(subtitles.file.read(), unicode('table_' + subtitles.filename), 'application/x-subrip', self.location)
+            response = {'filename': unicode('table_' + subtitles.filename), 'status': 'Success'}
+            return Response(json.dumps(response), status=201)
+
+        elif request.method == 'GET':
+
+            filename = request.GET.get('filename')
+            if not filename:
+                log.info("Invalid /translation request: no filename in request.GET")
+                return Response(status=400)
+
+            content = Transcript.get_asset(self.location, filename).data
+            response = Response(content, headerlist=[
+                ('Content-Disposition', 'attachment; filename="{}"'.format(filename.encode('utf8'))),
+                ('Content-Language', language),
+            ])
+            response.content_type = Transcript.mime_types['srt']
 
         return response

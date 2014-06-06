@@ -132,7 +132,6 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
         sorted_languages = sorted(languages.items(), key=itemgetter(1))
         if 'table' in self.transcripts:
             sorted_languages.insert(0, ('table', 'Table of Contents'))
-
         sorted_languages = OrderedDict(sorted_languages)
 
         return self.system.render_template('video.html', {
@@ -258,10 +257,10 @@ class VideoDescriptor(VideoFields, VideoStudioViewHandlers, TabsEditingDescripto
 
         languages = [{'label': label, 'code': lang} for lang, label in settings.ALL_LANGUAGES if lang != u'en']
         languages.sort(key=lambda l: l['label'])
-        languages.insert(0, {'label': 'Table of Contents', 'code': 'table'})
-        editable_fields['transcripts']['languages'] = languages
-        editable_fields['transcripts']['type'] = 'VideoTranslations'
+        editable_fields['transcripts']['languages'] = editable_fields['tables_of_content']['languages'] = languages
+        editable_fields['transcripts']['type'] = editable_fields['tables_of_content']['type'] = 'VideoTranslations'
         editable_fields['transcripts']['urlRoot'] = self.runtime.handler_url(self, 'studio_transcript', 'translation').rstrip('/?')
+        editable_fields['tables_of_content']['urlRoot'] = self.runtime.handler_url(self, 'studio_tables', '').rstrip('/?')
         editable_fields['handout']['type'] = 'FileUploader'
 
         return editable_fields

@@ -115,6 +115,13 @@ class VideoFields(object):
         scope=Scope.settings,
         default={}
     )
+    # Data format: {'de': 'german_translation', 'uk': 'ukrainian_translation'}
+    tables_of_content = Dict(
+        help=_("Add tables of content in different languages. Click below to specify a language and upload an .srt transcript file for that language."),
+        display_name=_("Transcript tables of contents"),
+        scope=Scope.settings,
+        default={}
+    )
     transcript_language = String(
         help=_("Preferred language for transcript."),
         display_name=_("Preferred language for transcript"),
