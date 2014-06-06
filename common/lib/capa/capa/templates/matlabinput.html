@@ -39,7 +39,7 @@
   <div class="external-grader-message" aria-live="polite">
     ${msg|n}
   </div>
-  <div class="external-grader-message ungraded-matlab-result" aria-live="polite">
+  <div class="ungraded-matlab-result" aria-live="polite">
     ${queue_msg|n}
   </div>
 
@@ -82,11 +82,12 @@
           // a chain of callbacks, each querying the server on success of the previous one
 
           var get_callback = function(response) {
-              var new_result_elem = $(response.html).find(".ungraded-matlab-result");
+              var new_result_elem = $(response.html).find(".ungraded-matlab-result").html();
+              var external_grader_msg = $(response.html).find(".external-grader-message").html();
               new_result_elem.addClass("is-fading-in");
               result_elem = $(problem_elt).find(".ungraded-matlab-result");
-              result_elem.replaceWith(new_result_elem);
-              console.log(response.html);
+              result_elem.html(new_result_elem);
+              $(problem_elt).find(".external-grader-message").html(external_grader_msg);
           }
 
           var plot_callback = function(response) {
