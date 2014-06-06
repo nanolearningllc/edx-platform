@@ -4,7 +4,7 @@
 
 import requests
 from lettuce import world, step
-from nose.tools import assert_true, assert_equal, assert_in, assert_not_equal # pylint: disable=E0611
+from nose.tools import assert_true, assert_equal, assert_in, assert_not_equal  # pylint: disable=E0611
 from terrain.steps import reload_the_page
 from django.conf import settings
 from common import upload_file, attach_file
@@ -115,7 +115,10 @@ def set_show_captions(step, setting):
 
     world.edit_component()
     world.select_editor_tab('Advanced')
-    world.browser.select('Show Transcript', setting)
+    if setting == 'True':
+        world.browser.check('Show Transcript')
+    else:
+        world.browser.uncheck('Show Transcript')
     world.save_component()
 
 
@@ -143,12 +146,12 @@ def correct_video_settings(_step):
         # advanced
         [DISPLAY_NAME, 'Video', False],
         ['Default Timed Transcript', '', False],
-        ['Download Transcript Allowed', 'False', False],
+        ['Download Transcript Allowed', 'false', False],
         ['Downloadable Transcript URL', '', False],
-        ['Show Transcript', 'True', False],
+        ['Show Transcript', 'true', False],
         ['Transcript Languages', '', False],
         ['Upload Handout', '', False],
-        ['Video Download Allowed', 'False', False],
+        ['Video Download Allowed', 'false', False],
         ['Video File URLs', '', False],
         ['Video Start Time', '00:00:00', False],
         ['Video Stop Time', '00:00:00', False],
