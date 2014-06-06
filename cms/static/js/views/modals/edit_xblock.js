@@ -180,7 +180,7 @@ define(["jquery", "underscore", "gettext", "js/views/modals/base_modal",
                     displayName;
                 if (xblockWrapperElement.length > 0) {
                     xblockElement = xblockWrapperElement.find('.xblock');
-                    displayName = xblockWrapperElement.find('.xblock-header .header-details').text().trim();
+                    displayName = xblockWrapperElement.find('.xblock-header .header-details .xblock-display-name').text().trim();
                     // If not found, try looking for the old unit page style rendering
                     if (!displayName) {
                         displayName = this.xblockElement.find('.component-header').text().trim();

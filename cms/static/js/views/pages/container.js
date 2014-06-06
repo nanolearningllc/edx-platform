@@ -54,7 +54,7 @@ define(["jquery", "underscore", "gettext", "js/views/baseview", "js/views/contai
             },
 
             refreshTitle: function() {
-                var title = this.$('.xblock-header .header-details span').first().text().trim();
+                var title = this.$('.xblock-header .header-details .xblock-display-name').first().text().trim();
                 this.$('.page-header-title').text(title);
                 this.$('.page-header .subtitle a').last().text(title);
             },
