@@ -4,6 +4,8 @@ Module containts utils specific for video_module but not for transcripts.
 import requests
 import json
 
+from django.conf import settings
+
 
 def create_youtube_string(module):
     """
@@ -26,9 +28,9 @@ def create_youtube_string(module):
         if pair[1]
     ])
 
-def get_video_from_cdn(module, original_url):
-        cdn_url = module.cdn_url + original_url
-        cdn_response = requests.get(cdn_url)
+def get_video_from_cdn(original_url):
+        request_url = settings.VIDEO_CDN_URL + original_url
+        cdn_response = requests.get(request_url)
         if cdn_response.status_code == 200:
             cdn_content = json.loads(cdn_video_url.content)
             return cdn_content['sources'][0]

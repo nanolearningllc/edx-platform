@@ -102,9 +102,9 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
 
         # If the user comes from China use China CDN for html5 videos.
         # 'CN' is China ISO 3166-1 country code.
-        if self.system.user_location == 'CN':
+        if self.video_speed_optimizations and self.system.user_location == 'CN':
             for ext, url in sources.items():
-                new_url = get_video_from_cdn(self, url)
+                new_url = get_video_from_cdn(url)
                 if new_url:
                     sources[ext] = new_url
         

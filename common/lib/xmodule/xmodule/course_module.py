@@ -429,6 +429,11 @@ class CourseFields(object):
     allow_public_wiki_access = Boolean(help="Whether to allow an unenrolled user to view the Wiki",
                                        default=False,
                                        scope=Scope.settings)
+    video_speed_optimizations = Boolean(
+        help="Enable Video CDN.",
+        default=True,
+        scope=Scope.settings
+    )
 
 class CourseDescriptor(CourseFields, SequenceDescriptor):
     module_class = SequenceModule
@@ -924,3 +929,9 @@ class CourseDescriptor(CourseFields, SequenceDescriptor):
             return self.display_organization
 
         return self.org
+
+    @property
+    def editable_metadata_fields(self):
+      editable_fields = super(CourseDescriptor, self).editable_metadata_fields
+      editable_fields.pop('video_speed_optimizations')
+      return editable_fields
