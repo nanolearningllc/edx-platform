@@ -20,6 +20,6 @@ class StudioEditableModuleTestCase(BaseVerticalModuleTest):
         }
 
         # Both children of the vertical should be rendered as reorderable
-        self.module_system.render(self.vertical, 'student_view', context).content
+        self.module_system.render(self.vertical, 'author_view', context).content
         self.assertIn(self.vertical.get_children()[0].location, reorderable_items)
         self.assertIn(self.vertical.get_children()[1].location, reorderable_items)

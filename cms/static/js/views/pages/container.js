@@ -111,12 +111,16 @@ define(["jquery", "underscore", "gettext", "js/views/baseview", "js/views/contai
                     buttonPanel = target.closest('.add-xblock-component'),
                     listPanel = buttonPanel.prev(),
                     scrollOffset = this.getScrollOffset(buttonPanel),
-                    placeholderElement = $('<div></div>').appendTo(listPanel),
+                    placeholderElement = $('<div class="studio-xblock-wrapper"></div>').appendTo(listPanel),
                     requestData = _.extend(template, {
                         parent_locator: parentLocator
                     });
                 return $.postJSON(this.getURLRoot() + '/', requestData,
-                    _.bind(this.onNewXBlock, this, placeholderElement, scrollOffset));
+                    _.bind(this.onNewXBlock, this, placeholderElement, scrollOffset))
+                    .fail(function() {
+                        // Remove the placeholder if the update failed
+                        placeholderElement.remove();
+                    });
             },
 
             duplicateComponent: function(xblockElement) {
@@ -128,14 +132,18 @@ define(["jquery", "underscore", "gettext", "js/views/baseview", "js/views/contai
                 this.runOperationShowingMessage(gettext('Duplicating&hellip;'),
                     function() {
                         var scrollOffset = self.getScrollOffset(xblockElement),
-                            placeholderElement = $('<div></div>').insertAfter(xblockElement),
+                            placeholderElement = $('<div class="studio-xblock-wrapper"></div>').insertAfter(xblockElement),
                             parentElement = self.findXBlockElement(parent),
                             requestData = {
                                 duplicate_source_locator: xblockElement.data('locator'),
                                 parent_locator: parentElement.data('locator')
                             };
                         return $.postJSON(self.getURLRoot() + '/', requestData,
-                            _.bind(self.onNewXBlock, self, placeholderElement, scrollOffset));
+                            _.bind(self.onNewXBlock, self, placeholderElement, scrollOffset))
+                            .fail(function() {
+                                // Remove the placeholder if the update failed
+                                placeholderElement.remove();
+                            });
                     });
             },
 
@@ -172,7 +180,7 @@ define(["jquery", "underscore", "gettext", "js/views/baseview", "js/views/contai
              * Refreshes the specified xblock's display. If the xblock is an inline child of a
              * reorderable container then the element will be refreshed inline. If not, then the
              * parent container will be refreshed instead.
-             * @param xblockElement An element representing the xblock to be refreshed.
+             * @param element An element representing the xblock to be refreshed.
              */
             refreshXBlock: function(element) {
                 var xblockElement = this.findXBlockElement(element),
