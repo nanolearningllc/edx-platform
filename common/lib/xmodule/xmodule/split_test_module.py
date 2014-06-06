@@ -417,7 +417,6 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
                 if usage_key not in self.children:
                     del self.group_id_to_child[str_group_id]
 
-
     @property
     def editable_metadata_fields(self):
         # Update the list of partitions based on the currently available user_partitions.
