@@ -161,4 +161,4 @@ class XBlockWrapper(PageObject):
 
     @property
     def preview_selector(self):
-        return self._bounded_selector('.xblock-student_view')
+        return self._bounded_selector('.xblock-student_view,.xblock-author_view')

@@ -319,7 +319,10 @@ class DeleteComponentTest(ContainerBase):
                              {self.group_a: [self.group_a_item_2]},
                              {self.group_b: [self.group_b_item_1, self.group_b_item_2]},
                              {self.group_empty: []}]
-        self.delete_and_verify(self.group_a_item_1_action_index, expected_ordering)
+
+        # Group A itself has a delete icon now, so item_1 is index 1 instead of 0.
+        group_a_item_1_delete_index = 1
+        self.delete_and_verify(group_a_item_1_delete_index, expected_ordering)
 
 
 class EditContainerTest(ContainerBase):

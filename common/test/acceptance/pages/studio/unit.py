@@ -27,7 +27,7 @@ class UnitPage(PageObject):
 
         def _is_finished_loading():
             # Wait until all components have been loaded
-            number_of_leaf_xblocks = len(self.q(css='{} .xblock-student_view'.format(Component.BODY_SELECTOR)).results)
+            number_of_leaf_xblocks = len(self.q(css='{} .xblock-author_view,.xblock-student_view'.format(Component.BODY_SELECTOR)).results)
             is_done = len(self.q(css=Component.BODY_SELECTOR).results) == number_of_leaf_xblocks
             return (is_done, is_done)
 
@@ -99,7 +99,7 @@ class Component(PageObject):
 
     @property
     def preview_selector(self):
-        return self._bounded_selector('.xblock-student_view')
+        return self._bounded_selector('.xblock-author_view,.xblock-student_view')
 
     def edit(self):
         self.q(css=self._bounded_selector('.edit-button')).first.click()
