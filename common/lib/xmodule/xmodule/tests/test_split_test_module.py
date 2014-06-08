@@ -164,29 +164,37 @@ class SplitTestModuleStudioTest(SplitTestModuleTest):
         Test the rendering of the Studio author view.
         """
 
+        def create_studio_context(root_xblock):
+            return {
+                'runtime_type': 'studio',
+                'container_view': True,
+                'reorderable_items': set(),
+                'root_xblock': root_xblock,
+            }
+
         # The split_test module should render both its groups when it is the root
-        reorderable_items = set()
-        context = {
-            'runtime_type': 'studio',
-            'container_view': True,
-            'reorderable_items': reorderable_items,
-            'root_xblock': self.split_test_module,
-        }
+        context = create_studio_context(self.split_test_module)
         html = self.module_system.render(self.split_test_module, 'author_view', context).content
         self.assertIn('HTML FOR GROUP 0', html)
         self.assertIn('HTML FOR GROUP 1', html)
 
         # When rendering as a child, it shouldn't render either of its groups
-        reorderable_items = set()
-        context = {
-            'runtime_type': 'studio',
-            'container_view': True,
-            'reorderable_items': reorderable_items,
-            'root_xblock': self.course_sequence,
-        }
+        context = create_studio_context(self.course_sequence)
         html = self.module_system.render(self.split_test_module, 'author_view', context).content
         self.assertNotIn('HTML FOR GROUP 0', html)
         self.assertNotIn('HTML FOR GROUP 1', html)
+
+        # The "Create Missing Groups" button should be rendered when groups are missing
+        context = create_studio_context(self.split_test_module)
+        self.split_test_module.user_partitions = [
+            UserPartition(0, 'first_partition', 'First Partition',
+                          [Group("0", 'alpha'), Group("1", 'beta'), Group("2", 'gamma')])
+        ]
+        html = self.module_system.render(self.split_test_module, 'author_view', context).content
+        self.assertIn('HTML FOR GROUP 0', html)
+        self.assertIn('HTML FOR GROUP 1', html)
+        # Note that the mock xblock system doesn't render the template but the parameters instead
+        self.assertIn('\'is_missing_groups\': True', html)
 
     def test_editable_settings(self):
         """
@@ -252,8 +260,13 @@ class SplitTestModuleStudioTest(SplitTestModuleTest):
 
         # Verify that a split_test does not return inactive children in the active children
         self.split_test_module.user_partitions = [
-            UserPartition(0, 'first_partition', 'First Partition',
-                          [Group("0", 'alpha')])
+            UserPartition(0, 'first_partition', 'First Partition', [Group("0", 'alpha')])
+        ]
+        self.assertEqual(len(split_test_module.active_children()), 1)
+
+        # Verify that a split_test ignores misconfigured children
+        self.split_test_module.user_partitions = [
+            UserPartition(0, 'first_partition', 'First Partition', [Group("0", 'alpha'), Group("2", 'gamma')])
         ]
         self.assertEqual(len(split_test_module.active_children()), 1)
 

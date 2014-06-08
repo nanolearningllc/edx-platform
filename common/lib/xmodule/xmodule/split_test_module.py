@@ -247,28 +247,25 @@ class SplitTestModule(SplitTestFields, XModule, StudioEditableModule):
         is_root = root_xblock and root_xblock.location == self.location
         active_groups_preview = None
         inactive_groups_preview = None
+        is_missing_groups = False
         if is_root:
+            user_partition = self.descriptor.get_selected_partition()
+            active_children = self.descriptor.active_children()
+            inactive_children = self.descriptor.inactive_children()
+            is_missing_groups = user_partition and len(active_children) < user_partition.groups
             active_groups_preview = self.studio_render_children(
-                fragment, self.descriptor.active_children(), context
+                fragment, active_children, context
             )
             inactive_groups_preview = self.studio_render_children(
-                fragment, self.descriptor.inactive_children(), context
+                fragment, inactive_children, context
             )
 
-        is_missing_group = False
-        user_partition = self.descriptor._get_selected_partition()
-        if user_partition:
-            for group in user_partition.groups:
-                if unicode(group.id) not in self.group_id_to_child:
-                    is_missing_group = True
-                    break
-
-        fragment.add_content(self.system.render_template('split_test_studio_preview.html', {
+        fragment.add_content(self.system.render_template('split_test_author_view.html', {
             'split_test': self,
             'is_root': is_root,
             'active_groups_preview': active_groups_preview,
             'inactive_groups_preview': inactive_groups_preview,
-            'is_missing_group': is_missing_group
+            'is_missing_groups': is_missing_groups
         }))
         fragment.add_javascript_url(self.runtime.local_resource_url(self, 'public/js/split_test_studio_preview.js'))
         fragment.initialize_js('SplitTestStudioPreviewView')
@@ -385,7 +382,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
     def get_context(self):
         _context = super(SplitTestDescriptor, self).get_context()
         _context.update({
-            'selected_partition': self._get_selected_partition()
+            'selected_partition': self.get_selected_partition()
         })
         return _context
 
@@ -405,7 +402,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
         # Any existing value of user_partition_id will be in "old_content" instead of "old_metadata"
         # because it is Scope.content.
         if 'user_partition_id' not in old_content or old_content['user_partition_id'] != self.user_partition_id:
-            selected_partition = self._get_selected_partition()
+            selected_partition = self.get_selected_partition()
             if selected_partition is not None:
                 self.group_id_mapping = {}
                 for group in selected_partition.groups:
@@ -442,7 +439,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
         ])
         return non_editable_fields
 
-    def _get_selected_partition(self):
+    def get_selected_partition(self):
         """
         Returns the partition that this split module is currently using, or None
         if the currently selected partition ID does not match any of the defined partitions.
@@ -459,7 +456,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
         """
         children = self.get_children()
 
-        def get_child_descriptor_by_location(location):
+        def get_child_descriptor(location):
             """
             Returns the child descriptor which matches the specified location, or None if one is not found.
             """
@@ -469,13 +466,13 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
             return None
 
         active_children = []
-        user_partition = self._get_selected_partition()
+        user_partition = self.get_selected_partition()
         if not user_partition:
             return active_children
         for group in user_partition.groups:
             group_id = unicode(group.id)
             child_location = self.group_id_to_child.get(group_id, None)
-            child = get_child_descriptor_by_location(child_location) if child_location else None
+            child = get_child_descriptor(child_location)
             if child:
                 active_children.append(child)
         return active_children
@@ -499,7 +496,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
         _ = self.runtime.service(self, "i18n").ugettext  # pylint: disable=redefined-outer-name
         if self.user_partition_id < 0:
             return _(u"You must select a group configuration for this content experiment."), ValidationMessageType.warning
-        user_partition = self._get_selected_partition()
+        user_partition = self.get_selected_partition()
         if not user_partition:
             return \
                 _(u"This content experiment will not be shown to students because it refers to a group configuration that has been deleted. You can delete this experiment or reinstate the group configuration to repair it."), \
@@ -520,7 +517,7 @@ class SplitTestDescriptor(SplitTestFields, SequenceDescriptor, StudioEditableDes
 
         Called from Studio view.
         """
-        user_partition = self._get_selected_partition()
+        user_partition = self.get_selected_partition()
         for group in user_partition.groups:
             str_group_id = unicode(group.id)
             changed = False
