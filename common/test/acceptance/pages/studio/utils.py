@@ -33,3 +33,24 @@ def wait_for_notification(page):
 
     Promise(_is_saving, 'Notification showing.').fulfill()
     Promise(_is_saving_done, 'Notification hidden.').fulfill()
+
+
+def add_discussion(page, menu_index):
+    """
+    Add a new instance of the discussion category.
+
+    menu_index specifies which instance of the menus should be used (based on vertical
+    placement within the page).
+    """
+    click_css(page, 'a>span.large-discussion-icon', menu_index)
+
+
+def add_advanced_component(page, menu_index, name):
+    """
+    Adds an instance of the advanced component with the specified name.
+
+    menu_index specifies which instance of the menus should be used (based on vertical
+    placement within the page).
+    """
+    click_css(page, 'a>span.large-advanced-icon', menu_index, require_notification=False)
+    click_css(page, 'a[data-category={}]>span'.format(name))

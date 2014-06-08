@@ -102,6 +102,11 @@ class Component(PageObject):
         return self._bounded_selector('.xblock-author_view,.xblock-student_view')
 
     def edit(self):
+        """
+        Clicks the "edit" button for the first component on the page.
+
+        Same as the implementation in unit.py, unit and component pages will be merging.
+        """
         self.q(css=self._bounded_selector('.edit-button')).first.click()
         EmptyPromise(
             lambda: self.q(css='.xblock-studio_view').present,

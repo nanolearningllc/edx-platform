@@ -77,15 +77,6 @@ class ContainerPage(PageObject):
         ).release().perform()
         wait_for_notification(self)
 
-    def add_discussion(self, menu_index):
-        """
-        Add a new instance of the discussion category.
-
-        menu_index specifies which instance of the menus should be used (based on vertical
-        placement within the page).
-        """
-        click_css(self, 'a>span.large-discussion-icon', menu_index)
-
     def duplicate(self, source_index):
         """
         Duplicate the item with index source_index (based on vertical placement in page).
@@ -101,6 +92,11 @@ class ContainerPage(PageObject):
         click_css(self, 'a.button.action-primary', 0)
 
     def edit(self):
+        """
+        Clicks the "edit" button for the first component on the page.
+
+        Same as the implementation in unit.py, unit and component pages will be merging.
+        """
         self.q(css='.edit-button').first.click()
         EmptyPromise(
             lambda: self.q(css='.xblock-studio_view').present,
