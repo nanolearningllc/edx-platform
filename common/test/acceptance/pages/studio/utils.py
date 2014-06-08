@@ -24,14 +24,18 @@ def wait_for_notification(page):
     Waits for the "mini-notification" to appear and disappear on the given page (subclass of PageObject).
     """
     def _is_saving():
-        num_notifications = len(page.q(css='.wrapper-notification-mini.is-shown'))
+        num_notifications = len(page.q(css=notification_shown_css))
         return (num_notifications == 1, num_notifications)
 
     def _is_saving_done():
         num_notifications = len(page.q(css='.wrapper-notification-mini.is-hiding'))
         return (num_notifications == 1, num_notifications)
 
-    Promise(_is_saving, 'Notification showing.').fulfill()
+    notification_shown_css = '.wrapper-notification-mini.is-shown'
+    # Sometimes it appears that the notification is shown "too quickly", and the Promise never returns True.
+    # Check first to see if it is already in the "is-shown" state.
+    if len(page.q(css=notification_shown_css)) != 1:
+        Promise(_is_saving, 'Notification showing.').fulfill()
     Promise(_is_saving_done, 'Notification hidden.').fulfill()
 
 
@@ -53,4 +57,4 @@ def add_advanced_component(page, menu_index, name):
     placement within the page).
     """
     click_css(page, 'a>span.large-advanced-icon', menu_index, require_notification=False)
-    click_css(page, 'a[data-category={}]>span'.format(name))
+    click_css(page, 'a[data-category={}]'.format(name))
