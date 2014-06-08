@@ -72,9 +72,16 @@ bundle install
 # Ensure the Ruby environment contains no stray gems
 bundle clean --force
 
-# Reset the jenkins worker's virtualenv back to the
+# If we have already created a venv for this set of Python requirements, use that.
+mkdir -p "$HOME/edx-venv-cache"
+PYTHON_PREREQS_SHA=`cat requirements/edx/*.txt | md5sum | cut -d ' ' -f 1`
+if [ -e "$HOME/edx-venv-cache/$PYTHON_PREREQS_SHA.tar.gz" ]; then
+   rm -rf "$HOME/edx-venv"
+   tar -C $HOME -xf "$HOME/edx-venv-cache/$PYTHON_PREREQS_SHA.tar.gz"
+
+# Otherwise, reset the jenkins worker's virtualenv back to the
 # state it was in when the instance was spun up.
-if [ -e $HOME/edx-venv_clean.tar.gz ]; then
+elif [ -e $HOME/edx-venv_clean.tar.gz ]; then
     rm -rf $HOME/edx-venv
     tar -C $HOME -xf $HOME/edx-venv_clean.tar.gz
 fi
@@ -117,5 +124,11 @@ END
         rake test:bok_choy
         rake test:bok_choy:coverage
         ;;
-
 esac
+
+# Cache the Python virtualenv
+if [ $TEST_SUITE != "quality" ]; then
+    if [ ! -e "$HOME/edx-venv-cache/$PYTHON_PREREQS_SHA.tar.gz" ]; then
+        tar cvzf $HOME/edx-venv-cache/$PYTHON_PREREQS_SHA.tar.gz -C $HOME/edx-venv .
+    fi
+fi
